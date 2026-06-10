@@ -1,0 +1,286 @@
+{
+  "meta": {
+    "siteName": "GO HEALTH",
+    "version": "2026-06-10-site-v1",
+    "updatedAt": "2026-06-10",
+    "language": "zh-TW",
+    "source": "GO HEALTH_SITE Google Sheet"
+  },
+  "global": {
+    "goHealthUrl": "https://www.hgs.tw/fp/?t=00M8",
+    "customerServiceUrl": "https://www.happygocard.com.tw/official/serviceMail.do",
+    "assetsBasePath": "assets/images/",
+    "logos": {
+      "happyGo": "assets/images/logo-happygo.png",
+      "femh": "assets/images/logo-femh.png",
+      "goHealth": "",
+      "qrCode": "assets/images/happy-go-go-health-qrcode.png"
+    }
+  },
+  "sections": [
+    {
+      "section_id": "hero",
+      "section_name": "主視覺",
+      "enabled": true,
+      "display_order": 1,
+      "title": "每天 3 分鐘，和家人一起動動腦",
+      "subtitle": "快樂陪伴，健康同行",
+      "body": "透過腦健康小遊戲、日常健康任務與家庭陪伴，和家人一起把健康變成每天的小習慣。",
+      "cta_text": "立即體驗 GO HEALTH",
+      "cta_url": "https://www.hgs.tw/fp/?t=00M8",
+      "desktop_image": "assets/images/hero-desktop.webp",
+      "mobile_image": "assets/images/hero-mobile.webp",
+      "status": "live"
+    },
+    {
+      "section_id": "product_intro",
+      "section_name": "服務介紹",
+      "enabled": true,
+      "display_order": 2,
+      "title": "GO HEALTH 是什麼？",
+      "subtitle": "HAPPY GO APP 內的輕量健康互動服務",
+      "body": "GO HEALTH 透過腦健康小遊戲、日常健康任務、家庭陪伴與衛教內容，陪你用更輕鬆的方式關心自己與家人的健康。",
+      "cta_text": "了解服務亮點",
+      "cta_url": "#features",
+      "desktop_image": "assets/images/product-intro.webp",
+      "mobile_image": "assets/images/product-intro-mobile.webp",
+      "status": "live"
+    },
+    {
+      "section_id": "features",
+      "section_name": "三大服務亮點",
+      "enabled": true,
+      "display_order": 3,
+      "title": "三大服務亮點",
+      "subtitle": "每天一點小互動，讓健康更自然",
+      "body": "從腦健康互動、日常健康任務到家庭陪伴，GO HEALTH 陪你把健康關心變成生活裡的小習慣。",
+      "cta_text": "立即開始",
+      "cta_url": "https://www.hgs.tw/fp/?t=00M8",
+      "desktop_image": "assets/images/features-desktop.webp",
+      "mobile_image": "assets/images/features-mobile.webp",
+      "status": "live"
+    },
+    {
+      "section_id": "social_campaign",
+      "section_name": "社群活動",
+      "enabled": true,
+      "display_order": 4,
+      "title": "世代記憶交換計畫",
+      "subtitle": "#大腦重播快樂記憶",
+      "body": "邀請你分享家中長輩最厲害的一件事，交換那些曾經發光的回憶。透過 KOL 分享與 HAPPY GO 官方粉絲團抽獎貼文，一起讓更多家庭重新說出長輩的精彩故事。",
+      "cta_text": "參加抽獎",
+      "cta_url": "TBD",
+      "desktop_image": "assets/images/social-campaign-desktop.webp",
+      "mobile_image": "assets/images/social-campaign-mobile.webp",
+      "status": "live"
+    },
+    {
+      "section_id": "offline_event",
+      "section_name": "實體活動",
+      "enabled": true,
+      "display_order": 5,
+      "title": "GO HEALTH 現場互動體驗",
+      "subtitle": "亞東醫院講座 × 高齡產業博覽會",
+      "body": "除了線上互動，GO HEALTH 也將走進實體場域，邀請你和家人一起體驗腦健康互動服務。從醫師講座、現場有獎徵答，到寫下快樂回憶的記憶郵局活動，讓健康知識與家庭陪伴在生活裡自然發生。",
+      "cta_text": "查看活動資訊",
+      "cta_url": "#events",
+      "desktop_image": "assets/images/offline-event-desktop.webp",
+      "mobile_image": "assets/images/offline-event-mobile.webp",
+      "status": "live"
+    },
+    {
+      "section_id": "notice",
+      "section_name": "注意事項",
+      "enabled": true,
+      "display_order": 6,
+      "title": "活動辦法與注意事項",
+      "subtitle": "參加前請先確認活動規則",
+      "body": "本活動相關資格、獎項、抽獎與公告方式，將依活動頁面及官方貼文公告為準。",
+      "cta_text": "展開活動規則",
+      "cta_url": "#notice",
+      "desktop_image": "",
+      "mobile_image": "",
+      "status": "live"
+    },
+    {
+      "section_id": "footer",
+      "section_name": "Footer",
+      "enabled": true,
+      "display_order": 7,
+      "title": "鼎鼎聯合行銷股份有限公司",
+      "subtitle": "Copyright 2026 All Rights Reserved by DDIM",
+      "body": "客服聯繫請點選下方連結。",
+      "cta_text": "客服聯繫",
+      "cta_url": "https://www.happygocard.com.tw/official/serviceMail.do",
+      "desktop_image": "",
+      "mobile_image": "",
+      "status": "live"
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "brain_game",
+      "title": "腦健康互動",
+      "subtitle": "記憶力、專注力、執行力小遊戲",
+      "body": "每天用簡單小遊戲動動腦，讓腦健康互動更輕鬆。",
+      "icon": "assets/images/brain-icon.webp",
+      "enabled": true
+    },
+    {
+      "feature_id": "daily_task",
+      "title": "日常健康任務",
+      "subtitle": "把健康關心變成日常",
+      "body": "透過簡單任務，陪你把健康關心慢慢放進每天生活。",
+      "icon": "assets/images/task-icon.webp",
+      "enabled": true
+    },
+    {
+      "feature_id": "family_companion",
+      "title": "家庭陪伴",
+      "subtitle": "邀請家人一起參與",
+      "body": "和家人一起完成互動，讓關心變得更有溫度、更自然。",
+      "icon": "assets/images/family-icon.webp",
+      "enabled": true
+    },
+    {
+      "feature_id": "health_content",
+      "title": "健康小知識",
+      "subtitle": "用輕鬆方式認識健康保養",
+      "body": "搭配衛教內容與生活化提醒，陪你用更好懂的方式關心健康。",
+      "icon": "assets/images/content-icon.webp",
+      "enabled": true
+    }
+  ],
+  "events": [
+    {
+      "event_id": "social_memory",
+      "event_type": "social",
+      "title": "世代記憶交換計畫",
+      "date": "2026/7/13–2026/8/31",
+      "time": "全期間",
+      "location": "HAPPY GO Facebook / Instagram",
+      "description": "透過兩位 KOL 的社群影響力，將粉絲導流至 HAPPY GO 官方粉絲團，並透過低門檻的留言互動，邀請卡友分享家中長輩的光芒記憶，一起引發回憶交換潮。",
+      "cta_text": "前往參加",
+      "cta_url": "TBD",
+      "enabled": true
+    },
+    {
+      "event_id": "femh_talk_0713",
+      "event_type": "offline",
+      "title": "亞東醫院腦健康分享講座",
+      "date": "2026/7/13",
+      "time": "10:30–12:00",
+      "location": "亞東醫院一樓大廳",
+      "description": "由神經醫學與精神科醫師分享腦健康保養知識，帶來第一手健康資訊。現場設有有獎徵答與記憶郵局活動，歡迎民眾寫下明信片，留下屬於自己的快樂回憶。",
+      "cta_text": "查看活動資訊",
+      "cta_url": "#events",
+      "enabled": true
+    },
+    {
+      "event_id": "femh_talk_0714",
+      "event_type": "offline",
+      "title": "亞東醫院腦健康分享講座",
+      "date": "2026/7/14",
+      "time": "10:30–12:00",
+      "location": "亞東醫院一樓大廳",
+      "description": "由神經醫學與精神科醫師分享腦健康保養知識，帶來第一手健康資訊。現場設有有獎徵答與記憶郵局活動，歡迎民眾寫下明信片，留下屬於自己的快樂回憶。",
+      "cta_text": "查看活動資訊",
+      "cta_url": "#events",
+      "enabled": true
+    },
+    {
+      "event_id": "senior_expo",
+      "event_type": "offline",
+      "title": "高齡產業博覽會 GO HEALTH 體驗",
+      "date": "2026/8/7–2026/8/9",
+      "time": "TBD",
+      "location": "高齡產業博覽會展區",
+      "description": "亞東醫院與 GO HEALTH 將於高齡產業博覽會現場共同展出，邀請民眾體驗 GO HEALTH 腦健康互動服務，了解如何用更輕鬆的方式，把腦健康與家庭陪伴帶進日常。",
+      "cta_text": "查看展會資訊",
+      "cta_url": "TBD",
+      "enabled": true
+    }
+  ],
+  "notices": [
+    {
+      "notice_id": "n001",
+      "category": "活動資格",
+      "title": "誰可以參加？",
+      "content": "本活動參加資格依各活動頁面與 HAPPY GO 官方貼文公告為準。參與者須依指定方式完成互動、留言或現場活動，方具抽獎或活動參與資格。",
+      "display_order": 1,
+      "status": "live"
+    },
+    {
+      "notice_id": "n002",
+      "category": "社群活動",
+      "title": "世代記憶交換計畫參加方式",
+      "content": "活動期間內，依 HAPPY GO 官方 Facebook 或 Instagram 抽獎貼文指定格式留言，分享「我聽過我家長輩最厲害的一件事」，即可參加抽獎。實際參加方式以官方貼文公告為準。",
+      "display_order": 2,
+      "status": "live"
+    },
+    {
+      "notice_id": "n003",
+      "category": "社群活動",
+      "title": "參考留言格式",
+      "content": "我聽過我家長輩最厲害的一件事：長輩稱謂：我媽媽；當年的光芒記憶：年輕時是那一條街最正的辣妹，生完我隔天還能單手提水桶！我想對他說：媽媽你現在依然是我的超人！",
+      "display_order": 3,
+      "status": "live"
+    },
+    {
+      "notice_id": "n004",
+      "category": "活動獎項",
+      "title": "獎項與抽獎說明",
+      "content": "社群活動獎項、抽獎方式、得獎公告時間與領獎方式，將於 HAPPY GO 官方活動貼文中公告。主辦單位保有審核參加資格與得獎資格之權利。",
+      "display_order": 4,
+      "status": "live"
+    },
+    {
+      "notice_id": "n005",
+      "category": "實體活動",
+      "title": "亞東醫院現場活動說明",
+      "content": "2026/7/13 與 2026/7/14 亞東醫院一樓大廳將舉辦腦健康分享講座，現場活動包含醫師分享、有獎徵答與記憶郵局。實際活動內容與流程以現場公告為準。",
+      "display_order": 5,
+      "status": "live"
+    },
+    {
+      "notice_id": "n006",
+      "category": "實體活動",
+      "title": "高齡產業博覽會活動說明",
+      "content": "2026/8/7 至 2026/8/9 高齡產業博覽會期間，亞東醫院與 GO HEALTH 將共同展示腦健康互動體驗。實際展出內容、地點與時間以現場及官方公告為準。",
+      "display_order": 6,
+      "status": "live"
+    },
+    {
+      "notice_id": "n007",
+      "category": "活動變更",
+      "title": "活動調整權利",
+      "content": "如因不可抗力因素、場地限制、系統狀況或活動執行需求，主辦單位保有調整、修改、暫停或終止本活動之權利。",
+      "display_order": 7,
+      "status": "live"
+    },
+    {
+      "notice_id": "n008",
+      "category": "非醫療聲明",
+      "title": "服務用途說明",
+      "content": "GO HEALTH 為健康促進與日常互動體驗服務，不作為醫療診斷、疾病篩檢、疾病預測或治療建議用途。如有健康疑慮，請洽詢專業醫療人員。",
+      "display_order": 8,
+      "status": "live"
+    },
+    {
+      "notice_id": "n009",
+      "category": "個資與互動內容",
+      "title": "參與資料說明",
+      "content": "參與活動所提供之留言、互動內容或聯繫資料，將依活動執行、得獎通知與相關法規規範使用。詳細個資使用方式以官方活動公告及 HAPPY GO 相關規範為準。",
+      "display_order": 9,
+      "status": "live"
+    },
+    {
+      "notice_id": "n010",
+      "category": "客服聯繫",
+      "title": "活動問題詢問",
+      "content": "若有活動或服務相關問題，請透過 HAPPY GO 官方客服管道聯繫。",
+      "display_order": 10,
+      "status": "live"
+    }
+  ]
+}
