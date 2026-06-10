@@ -152,3 +152,99 @@ img{max-width:100%;display:block}
 @media (max-width:767px){
   .site-header{min-height:64px;padding:12px 18px}.brand-text{font-size:16px}.brand-mark{width:32px;height:32px}.hero{min-height:820px}.hero-bg img{object-position:center bottom}.hero-overlay{background:linear-gradient(180deg,rgba(250,251,247,.98) 0%,rgba(250,251,247,.94) 28%,rgba(250,251,247,.22) 55%,rgba(250,251,247,0) 100%)}.hero-content{padding:92px 22px 0;max-width:100%}.hero-brand{font-size:13px;padding:7px 13px}.hero-kicker{margin-top:14px}.hero h1{font-size:36px}.hero-copy{font-size:16px;max-width:340px}.hero-actions{gap:10px}.btn{width:100%;padding:12px 18px}.hero-qr{display:none!important}.section{padding:60px 20px}.section-heading{text-align:left;margin-bottom:26px}.section-copy h2,.section-heading h2{font-size:30px}.section-copy p:not(.section-eyebrow):not(.lead){font-size:16px}.lead{font-size:18px!important}.intro-visual{min-height:340px;border-radius:26px}.phone-mockup{width:210px;min-height:280px}.orbit-card{font-size:13px;padding:10px 13px}.orbit-task{left:14px;top:30px}.orbit-brain{right:10px;top:90px}.orbit-family{left:28px;bottom:42px}.orbit-point{right:22px;bottom:32px}.campaign-card{min-height:420px;padding:24px}.memory-bubble{font-size:17px;margin-top:42px}.memory-bubble.small{margin-left:18px}.prize-card{width:100%;padding:14px}.kol-card{position:relative;right:auto;bottom:auto;margin-top:16px;width:fit-content}.partner-logos img{max-width:170px;max-height:38px}.site-footer{text-align:left}
 }
+
+/* v4 refinements: GitHub cache busting + centered sections + motion */
+.feature-grid{
+  max-width:1040px;
+  margin:0 auto;
+  justify-content:center;
+}
+.feature-section .section-heading{text-align:center;}
+.feature-card{transition:transform .28s ease, box-shadow .28s ease;}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(120,200,160,.18)}
+.feature-icon{animation:icon-bob 3.2s ease-in-out infinite;}
+.feature-card:nth-child(2) .feature-icon{animation-delay:.35s}.feature-card:nth-child(3) .feature-icon{animation-delay:.7s}
+@keyframes icon-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.05)}}
+
+.intro-visual{isolation:isolate;}
+.intro-visual:after{
+  content:'';
+  position:absolute;
+  inset:auto 10% 9% auto;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(246,215,122,.55),rgba(246,215,122,0) 70%);
+  z-index:0;
+  animation:soft-pulse 4.8s ease-in-out infinite;
+}
+.phone-mockup{z-index:2;animation:mockup-breathe 5.5s ease-in-out infinite;}
+@keyframes mockup-breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-52%) scale(1.015)}}
+@keyframes soft-pulse{0%,100%{opacity:.72;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+
+.campaign-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:0;
+}
+.campaign-card .memory-bubble{animation:memory-float 5s ease-in-out infinite;}
+.campaign-card .memory-bubble.small{animation-delay:.8s;}
+.prize-card{
+  width:min(100%,470px);
+  margin-top:26px;
+}
+.kol-card{
+  position:relative;
+  right:auto;
+  bottom:auto;
+  z-index:2;
+  width:fit-content;
+  margin-top:16px;
+}
+.campaign-layout .section-copy .campaign-cta,
+.campaign-layout .section-copy .btn{
+  display:inline-flex;
+  margin-top:34px;
+}
+@keyframes memory-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.partner-strip{
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-direction:column;
+  padding:24px 26px;
+}
+.partner-note{color:#526b63;font-size:14px;}
+.partner-logos{justify-content:center;}
+.partner-logos img{max-height:48px;}
+
+.reveal-init{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .72s ease, transform .72s ease;
+  transition-delay:var(--reveal-delay,0ms);
+}
+.reveal-init.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media (max-width:980px){
+  .feature-grid{max-width:620px;}
+  .partner-strip{align-items:center;}
+}
+@media (max-width:767px){
+  .feature-section .section-heading{text-align:center;}
+  .feature-grid{max-width:100%;}
+  .campaign-layout .section-copy .campaign-cta,
+  .campaign-layout .section-copy .btn{width:auto;min-width:180px;margin-top:28px;}
+  .prize-card{width:100%;}
+  .partner-strip{text-align:center;align-items:center;}
+  .partner-logos{justify-content:center;width:100%;}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+  .reveal-init{opacity:1!important;transform:none!important;}
+}

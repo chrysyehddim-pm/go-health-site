@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v3';
+const CONTENT_URL = './content.json?v=20260610v4';
 
 const fallbackContent = {
   global: {
@@ -7,7 +7,7 @@ const fallbackContent = {
     logos: {
       happyGo: 'assets/images/logo-happygo.png',
       femh: 'assets/images/logo-femh.png',
-      qrCode: 'assets/images/happy-go-go-health-qrcode.png'
+      qrCode: 'assets/images/happy-go-go-health-qrcode.svg'
     }
   },
   sections: [],
@@ -169,6 +169,31 @@ function renderFooter(content) {
   if (footerCta) footerCta.href = content.global?.customerServiceUrl || footerCta.href;
 }
 
+
+function setupMotionEffects() {
+  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-card, .feature-card, .event-card, .partner-strip, .notice-item');
+  targets.forEach((el, index) => {
+    el.classList.add('reveal-init');
+    el.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 80}ms`);
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+  targets.forEach(el => observer.observe(el));
+}
+
 function renderAll(content) {
   ['product_intro', 'features', 'social_campaign', 'offline_event', 'notice', 'footer'].forEach(id => renderSectionText(content, id));
   renderHero(content);
@@ -177,6 +202,7 @@ function renderAll(content) {
   renderNotices(content);
   renderLogos(content);
   renderFooter(content);
+  setupMotionEffects();
 }
 
 async function init() {
