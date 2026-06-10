@@ -16,3 +16,6 @@ GO HEALTH 活動網站 v7
 cd go-health-site
 python -m http.server 8000
 然後開啟 http://localhost:8000
+
+
+2026-06-10 v7.1：修正 mobile menu hidden 樣式，避免桌機/手機預設展開。

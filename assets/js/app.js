@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v7';
+const CONTENT_URL = './content.json?v=20260610v7_1';
 
 const fallbackContent = {
   global: {
