@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260610v6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260610v7" />
 </head>
 <body>
   <header class="site-header" aria-label="GO HEALTH 網站導覽">
@@ -20,9 +20,21 @@
       <a href="#product_intro">服務介紹</a>
       <a href="#features">服務亮點</a>
       <a href="#campaign">世代記憶交換</a>
+      <a href="#kolGuides">記憶分享引路人</a>
       <a href="#events">場次資訊</a>
       <a href="#notice">注意事項</a>
     </nav>
+    <button class="mobile-menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#product_intro">GO HEALTH 是什麼</a>
+      <a href="#features">服務亮點</a>
+      <a href="#campaign">世代記憶交換計畫</a>
+      <a href="#kolGuides">記憶分享引路人</a>
+      <a href="#events">活動場次資訊</a>
+      <a href="#notice">注意事項</a>
+    </div>
   </header>
 
   <main id="top">
@@ -96,7 +108,7 @@
     <section class="section campaign-section campaign-master-section" id="campaign">
       <div class="section-inner campaign-inner">
         <div class="campaign-master-heading" data-section="social_campaign">
-          <p class="section-eyebrow">LAUNCH CAMPAIGN</p>
+          <p class="section-eyebrow">SPECIAL PROJECT</p>
           <h2 data-field="title">世代記憶交換計畫</h2>
           <p class="lead" data-field="subtitle">聽說，你當年超厲害？</p>
         </div>
@@ -127,10 +139,19 @@
         <div class="campaign-trilogy-block">
           <div class="campaign-trilogy-heading">
             <p class="section-eyebrow">CAMPAIGN PROGRAM</p>
-            <h3>記憶交換三重奏</h3>
-            <p>同一個主題，三種參與方式：線上說出記憶、現場寄出記憶，再到展場延續記憶互動。</p>
+            <h3>三種方式，交換快樂記憶</h3>
+            <p>從一句留言、一張明信片，到一次現場互動，把長輩的快樂記憶，變成家人重新靠近的開始。</p>
           </div>
-          <div class="campaign-trilogy-grid" id="campaignTrilogyGrid" aria-label="記憶交換三重奏"></div>
+          <div class="campaign-trilogy-grid" id="campaignTrilogyGrid" aria-label="記憶交換三種參與方式"></div>
+        </div>
+
+        <div class="kol-guides-block" id="kolGuides">
+          <div class="kol-guides-heading">
+            <p class="section-eyebrow">STORY GUIDES</p>
+            <h3>記憶分享引路人</h3>
+            <p>跟著不同世代、不同視角的分享者，一起打開長輩的光芒記憶。</p>
+          </div>
+          <div class="kol-grid" id="kolGrid" aria-label="記憶分享引路人"></div>
         </div>
       </div>
     </section>
@@ -167,6 +188,8 @@
     </section>
   </main>
 
+  <button class="back-to-top" type="button" aria-label="回到頁首">↑</button>
+
   <footer class="site-footer" data-section="footer">
     <div class="footer-inner">
       <p><strong data-field="title">鼎鼎聯合行銷股份有限公司</strong></p>
@@ -175,6 +198,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=20260610v6"></script>
+  <script src="assets/js/app.js?v=20260610v7"></script>
 </body>
 </html>

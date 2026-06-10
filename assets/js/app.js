@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v6';
+const CONTENT_URL = './content.json?v=20260610v7';
 
 const fallbackContent = {
   global: {
@@ -14,7 +14,9 @@ const fallbackContent = {
   features: [],
   events: [],
   notices: [],
-  rewards: []
+  rewards: [],
+  campaign_steps: [],
+  kol_profiles: []
 };
 
 function findSection(content, id) {
@@ -40,6 +42,14 @@ function isEmptyUrl(url) {
 
 function safeUrl(url, fallback = '#') {
   return isEmptyUrl(url) ? fallback : url;
+}
+
+function renderInlineCta(text, url, emptyText = '即將公開') {
+  if (!text && !emptyText) return '';
+  if (isEmptyUrl(url)) {
+    return `<span class="text-link is-disabled" aria-disabled="true">${escapeHtml(emptyText || text)}</span>`;
+  }
+  return `<a class="text-link" href="${escapeHtml(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(text || emptyText)}</a>`;
 }
 
 function setImageIfExists(selector, src) {
@@ -139,27 +149,55 @@ function renderCampaignTrilogy(content) {
   const grid = document.querySelector('#campaignTrilogyGrid');
   if (!grid) return;
   const icons = ['💬', '✉️', '🌿'];
-  const items = (content.events || [])
+  const steps = (content.campaign_steps && content.campaign_steps.length ? content.campaign_steps : [])
     .filter(item => item.enabled !== false && item.status !== 'hidden')
-    .slice(0, 3);
-  grid.innerHTML = items.map((item, index) => {
-    const hasCta = item.cta_text && !isEmptyUrl(item.cta_url);
-    return `
-      <article class="trilogy-card trilogy-${index + 1}">
-        <div class="trilogy-top">
-          <span class="trilogy-step">${ordinalLabel(index)}</span>
-          <span class="trilogy-icon" aria-hidden="true">${icons[index] || '🌿'}</span>
-        </div>
-        <h3>${escapeHtml(item.title || '')}</h3>
+    .sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+
+  const fallbackSteps = (content.events || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .slice(0, 3)
+    .map((item, index) => ({
+      step_label: ordinalLabel(index),
+      title: item.title,
+      description: item.description,
+      meta: [item.date, item.location].filter(Boolean).join('｜'),
+      cta_text: item.cta_text,
+      cta_url: item.cta_url,
+      display_order: index + 1
+    }));
+
+  const items = steps.length ? steps : fallbackSteps;
+  grid.innerHTML = items.map((item, index) => `
+    <article class="trilogy-card trilogy-${index + 1}">
+      <div class="trilogy-top">
+        <span class="trilogy-step">${escapeHtml(item.step_label || ordinalLabel(index))}</span>
+        <span class="trilogy-icon" aria-hidden="true">${icons[index] || '🌿'}</span>
+      </div>
+      <h3>${escapeHtml(item.title || '')}</h3>
+      <p>${escapeHtml(item.description || '')}</p>
+      ${item.meta ? `<div class="trilogy-meta"><span>${textWithBreaks(item.meta || '')}</span></div>` : ''}
+      ${renderInlineCta(item.cta_text || '', item.cta_url || '', index === 0 ? '活動貼文即將公開' : '')}
+    </article>
+  `).join('');
+}
+
+function renderKols(content) {
+  const grid = document.querySelector('#kolGrid');
+  if (!grid) return;
+  const items = (content.kol_profiles || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+  grid.innerHTML = items.map(item => `
+    <article class="kol-guide-card">
+      <div class="kol-avatar" aria-hidden="true">${escapeHtml((item.name || '').slice(0, 1))}</div>
+      <div class="kol-guide-copy">
+        <h4>${escapeHtml(item.name || '')}</h4>
+        <strong>${escapeHtml(item.title || '')}</strong>
         <p>${escapeHtml(item.description || '')}</p>
-        <div class="trilogy-meta">
-          <span>${textWithBreaks(item.date || '')}</span>
-          <span>${textWithBreaks(item.location || '')}</span>
-        </div>
-        ${hasCta ? `<a class="text-link" href="${escapeHtml(safeUrl(item.cta_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.cta_text)}</a>` : ''}
-      </article>
-    `;
-  }).join('');
+        ${renderInlineCta(item.link_text || '查看分享貼文', item.link_url || '', '分享貼文即將公開')}
+      </div>
+    </article>
+  `).join('');
 }
 
 function renderEvents(content) {
@@ -212,7 +250,7 @@ function renderFooter(content) {
 }
 
 function setupMotionEffects() {
-  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-master-heading, .campaign-kv-card, .campaign-hero-copy, .reward-card, .trilogy-card, .feature-card, .event-card, .partner-strip, .notice-item');
+  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-master-heading, .campaign-kv-card, .campaign-hero-copy, .reward-card, .trilogy-card, .kol-guides-heading, .kol-guide-card, .feature-card, .event-card, .partner-strip, .notice-item');
   targets.forEach((el, index) => {
     el.classList.add('reveal-init');
     el.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 80}ms`);
@@ -241,11 +279,43 @@ function renderAll(content) {
   renderFeatures(content);
   renderRewards(content);
   renderCampaignTrilogy(content);
+  renderKols(content);
   renderEvents(content);
   renderNotices(content);
   renderLogos(content);
   renderFooter(content);
   setupMotionEffects();
+}
+
+function setupNavControls() {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const menu = document.querySelector('#mobileMenu');
+  const topBtn = document.querySelector('.back-to-top');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.hidden = open;
+      document.body.classList.toggle('mobile-menu-open', !open);
+    });
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+  }
+
+  if (topBtn) {
+    const updateTopButton = () => {
+      topBtn.classList.toggle('is-visible', window.scrollY > 520);
+    };
+    window.addEventListener('scroll', updateTopButton, { passive: true });
+    updateTopButton();
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 }
 
 async function init() {
@@ -260,4 +330,7 @@ async function init() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavControls();
+  init();
+});
