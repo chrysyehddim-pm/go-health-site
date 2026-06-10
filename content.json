@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "GO HEALTH",
-    "version": "2026-06-10-site-v1",
+    "version": "2026-06-10-v2",
     "updatedAt": "2026-06-10",
     "language": "zh-TW",
     "source": "GO HEALTH_SITE Google Sheet"
@@ -67,7 +67,7 @@
       "display_order": 4,
       "title": "世代記憶交換計畫",
       "subtitle": "#大腦重播快樂記憶",
-      "body": "邀請你分享家中長輩最厲害的一件事，交換那些曾經發光的回憶。透過 KOL 分享與 HAPPY GO 官方粉絲團抽獎貼文，一起讓更多家庭重新說出長輩的精彩故事。",
+      "body": "8/31 前留言分享「我聽過我家長輩最厲害的一件事」，就有機會抽 Nintendo Switch 2。跟著陳彥婷、劉軒一起分享家中長輩的光芒記憶，讓更多家庭重新說出長輩的精彩故事。",
       "cta_text": "參加抽獎",
       "cta_url": "TBD",
       "desktop_image": "assets/images/social-campaign-desktop.webp",
@@ -80,10 +80,10 @@
       "enabled": true,
       "display_order": 5,
       "title": "GO HEALTH 現場互動體驗",
-      "subtitle": "亞東醫院講座 × 高齡產業博覽會",
-      "body": "除了線上互動，GO HEALTH 也將走進實體場域，邀請你和家人一起體驗腦健康互動服務。從醫師講座、現場有獎徵答，到寫下快樂回憶的記憶郵局活動，讓健康知識與家庭陪伴在生活裡自然發生。",
-      "cta_text": "查看活動資訊",
-      "cta_url": "#events",
+      "subtitle": "亞東醫院講座 × 2026 高齡健康產業博覽會",
+      "body": "GO HEALTH 將走進實體場域，包含亞東醫院腦健康分享講座與 2026 高齡健康產業博覽會現場體驗，邀請你和家人一起認識腦健康互動服務，把健康知識與家庭陪伴帶進日常。",
+      "cta_text": "",
+      "cta_url": "",
       "desktop_image": "assets/images/offline-event-desktop.webp",
       "mobile_image": "assets/images/offline-event-mobile.webp",
       "status": "live"
@@ -148,7 +148,7 @@
       "subtitle": "用輕鬆方式認識健康保養",
       "body": "搭配衛教內容與生活化提醒，陪你用更好懂的方式關心健康。",
       "icon": "assets/images/content-icon.webp",
-      "enabled": true
+      "enabled": false
     }
   ],
   "events": [
@@ -159,62 +159,54 @@
       "date": "2026/7/13–2026/8/31",
       "time": "全期間",
       "location": "HAPPY GO Facebook / Instagram",
-      "description": "透過兩位 KOL 的社群影響力，將粉絲導流至 HAPPY GO 官方粉絲團，並透過低門檻的留言互動，邀請卡友分享家中長輩的光芒記憶，一起引發回憶交換潮。",
+      "description": "8/31 前至 HAPPY GO 官方 Facebook 或 Instagram 抽獎貼文，留言分享「我聽過我家長輩最厲害的一件事」，即有機會參加抽獎。此活動已於社群活動區呈現，實體活動區不重複露出。",
       "cta_text": "前往參加",
       "cta_url": "TBD",
-      "enabled": true
+      "enabled": false
     },
     {
-      "event_id": "femh_talk_0713",
+      "event_id": "femh_talk",
       "event_type": "offline",
       "title": "亞東醫院腦健康分享講座",
-      "date": "2026/7/13",
+      "date": "2026/7/13、2026/7/14",
       "time": "10:30–12:00",
-      "location": "亞東醫院一樓大廳",
-      "description": "由神經醫學與精神科醫師分享腦健康保養知識，帶來第一手健康資訊。現場設有有獎徵答與記憶郵局活動，歡迎民眾寫下明信片，留下屬於自己的快樂回憶。",
-      "cta_text": "查看活動資訊",
-      "cta_url": "#events",
+      "location": "亞東醫院一樓大廳｜新北市板橋區華東里南雅南路二段21號",
+      "description": "由神經醫學與精神科醫師分享腦健康保養知識，帶來第一手健康資訊。現場設有有獎徵答與記憶郵局活動，歡迎民眾寫下明信片，留下屬於自己的快樂回憶。醫師衛教主題待確認。",
+      "cta_text": "查看地圖",
+      "cta_url": "https://www.google.com/maps/search/?api=1&query=亞東醫院%20新北市板橋區華東里南雅南路二段21號",
       "enabled": true
     },
     {
       "event_id": "femh_talk_0714",
       "event_type": "offline",
-      "title": "亞東醫院腦健康分享講座",
+      "title": "亞東醫院腦健康分享講座（已整併）",
       "date": "2026/7/14",
       "time": "10:30–12:00",
       "location": "亞東醫院一樓大廳",
-      "description": "由神經醫學與精神科醫師分享腦健康保養知識，帶來第一手健康資訊。現場設有有獎徵答與記憶郵局活動，歡迎民眾寫下明信片，留下屬於自己的快樂回憶。",
-      "cta_text": "查看活動資訊",
-      "cta_url": "#events",
-      "enabled": true
+      "description": "此活動已整併至「亞東醫院腦健康分享講座」卡片。",
+      "cta_text": "",
+      "cta_url": "",
+      "enabled": false
     },
     {
       "event_id": "senior_expo",
       "event_type": "offline",
-      "title": "高齡產業博覽會 GO HEALTH 體驗",
+      "title": "2026 高齡健康產業博覽會",
       "date": "2026/8/7–2026/8/9",
-      "time": "TBD",
-      "location": "高齡產業博覽會展區",
-      "description": "亞東醫院與 GO HEALTH 將於高齡產業博覽會現場共同展出，邀請民眾體驗 GO HEALTH 腦健康互動服務，了解如何用更輕鬆的方式，把腦健康與家庭陪伴帶進日常。",
+      "time": "8/7（五）10:00–18:00｜8/8（六）10:00–18:00｜8/9（日）10:00–17:00",
+      "location": "台北世貿中心一館全區｜台北市信義區信義路五段5號",
+      "description": "亞東醫院與 GO HEALTH 將於 2026 高齡健康產業博覽會現場共同展示腦健康互動體驗。攤位位置待補充，歡迎到現場了解如何用更輕鬆的方式，把腦健康與家庭陪伴帶進日常。",
       "cta_text": "查看展會資訊",
-      "cta_url": "TBD",
+      "cta_url": "https://www.taiwan-healthcare.org/hats/zh/index.php",
       "enabled": true
     }
   ],
   "notices": [
     {
-      "notice_id": "n001",
-      "category": "活動資格",
-      "title": "誰可以參加？",
-      "content": "本活動參加資格依各活動頁面與 HAPPY GO 官方貼文公告為準。參與者須依指定方式完成互動、留言或現場活動，方具抽獎或活動參與資格。",
-      "display_order": 1,
-      "status": "live"
-    },
-    {
       "notice_id": "n002",
       "category": "社群活動",
       "title": "世代記憶交換計畫參加方式",
-      "content": "活動期間內，依 HAPPY GO 官方 Facebook 或 Instagram 抽獎貼文指定格式留言，分享「我聽過我家長輩最厲害的一件事」，即可參加抽獎。實際參加方式以官方貼文公告為準。",
+      "content": "活動期間內，依 HAPPY GO 官方 Facebook 或 Instagram 抽獎貼文指定格式留言，分享「我聽過我家長輩最厲害的一件事」，即可參加抽獎。活動期間至 2026/8/31，實際參加方式以官方貼文公告為準。",
       "display_order": 2,
       "status": "live"
     },
@@ -230,7 +222,7 @@
       "notice_id": "n004",
       "category": "活動獎項",
       "title": "獎項與抽獎說明",
-      "content": "社群活動獎項、抽獎方式、得獎公告時間與領獎方式，將於 HAPPY GO 官方活動貼文中公告。主辦單位保有審核參加資格與得獎資格之權利。",
+      "content": "社群活動預計提供 Nintendo Switch 2 作為抽獎獎項。獎項、抽獎方式、得獎公告時間與領獎方式，將於 HAPPY GO 官方活動貼文中公告。主辦單位保有審核參加資格與得獎資格之權利。",
       "display_order": 4,
       "status": "live"
     },
@@ -238,15 +230,15 @@
       "notice_id": "n005",
       "category": "實體活動",
       "title": "亞東醫院現場活動說明",
-      "content": "2026/7/13 與 2026/7/14 亞東醫院一樓大廳將舉辦腦健康分享講座，現場活動包含醫師分享、有獎徵答與記憶郵局。實際活動內容與流程以現場公告為準。",
+      "content": "2026/7/13 與 2026/7/14 亞東醫院一樓大廳將舉辦腦健康分享講座，現場活動包含醫師分享、有獎徵答與記憶郵局。醫師衛教主題待確認，實際活動內容與流程以現場公告為準。",
       "display_order": 5,
       "status": "live"
     },
     {
       "notice_id": "n006",
       "category": "實體活動",
-      "title": "高齡產業博覽會活動說明",
-      "content": "2026/8/7 至 2026/8/9 高齡產業博覽會期間，亞東醫院與 GO HEALTH 將共同展示腦健康互動體驗。實際展出內容、地點與時間以現場及官方公告為準。",
+      "title": "高齡健康產業博覽會活動說明",
+      "content": "2026/8/7 至 2026/8/9 高齡健康產業博覽會期間，亞東醫院與 GO HEALTH 將共同展示腦健康互動體驗。展會地點為台北世貿中心一館全區，攤位位置待補充；實際展出內容、地點與時間以現場及官方公告為準。",
       "display_order": 6,
       "status": "live"
     },

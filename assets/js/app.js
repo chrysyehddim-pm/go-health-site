@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610';
+const CONTENT_URL = './content.json?v=20260610v3';
 
 const fallbackContent = {
   global: {
@@ -20,14 +20,46 @@ function findSection(content, id) {
   return (content.sections || []).find(section => section.section_id === id && section.enabled !== false && section.status !== 'hidden');
 }
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function textWithBreaks(value = '') {
+  return escapeHtml(value).replace(/\s*｜\s*/g, '<br>').replace(/\n/g, '<br>');
+}
+
+function isEmptyUrl(url) {
+  return !url || String(url).trim() === '' || String(url).trim().toUpperCase() === 'TBD';
+}
+
 function safeUrl(url, fallback = '#') {
-  if (!url || url === 'TBD') return fallback;
-  return url;
+  return isEmptyUrl(url) ? fallback : url;
 }
 
 function setImageIfExists(selector, src) {
   const el = document.querySelector(selector);
   if (el && src) el.src = src;
+}
+
+function setCta(cta, text, url, fallbackText = '') {
+  if (!cta) return;
+  if (text) cta.textContent = text;
+  if (!text && fallbackText) cta.textContent = fallbackText;
+  if (isEmptyUrl(url)) {
+    cta.href = '#';
+    cta.classList.add('is-disabled');
+    cta.setAttribute('aria-disabled', 'true');
+    cta.addEventListener('click', event => event.preventDefault(), { once: true });
+  } else {
+    cta.href = url;
+    cta.classList.remove('is-disabled');
+    cta.removeAttribute('aria-disabled');
+  }
 }
 
 function renderSectionText(content, sectionId) {
@@ -47,10 +79,7 @@ function renderSectionText(content, sectionId) {
   });
 
   const cta = scope.querySelector('[data-field="cta"]');
-  if (cta) {
-    cta.textContent = section.cta_text || cta.textContent;
-    cta.href = safeUrl(section.cta_url, cta.getAttribute('href') || '#');
-  }
+  if (cta) setCta(cta, section.cta_text, section.cta_url, cta.textContent);
 }
 
 function renderHero(content) {
@@ -73,33 +102,45 @@ function renderHero(content) {
 function renderFeatures(content) {
   const grid = document.querySelector('#featureGrid');
   if (!grid) return;
-  const icons = ['🧠', '✅', '💛', '📖'];
-  grid.innerHTML = (content.features || []).filter(item => item.enabled !== false).map((item, index) => `
-    <article class="feature-card">
-      <div class="feature-icon" aria-hidden="true">${icons[index] || '🌿'}</div>
-      <h3>${item.title || ''}</h3>
-      <strong>${item.subtitle || ''}</strong>
-      <p>${item.body || ''}</p>
-    </article>
-  `).join('');
+  const icons = {
+    brain_game: '🧠',
+    daily_task: '✅',
+    family_companion: '💛',
+    health_content: '📖'
+  };
+  grid.innerHTML = (content.features || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .map(item => `
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">${icons[item.feature_id] || '🌿'}</div>
+        <h3>${escapeHtml(item.title || '')}</h3>
+        <strong>${escapeHtml(item.subtitle || '')}</strong>
+        <p>${escapeHtml(item.body || '')}</p>
+      </article>
+    `).join('');
 }
 
 function renderEvents(content) {
   const grid = document.querySelector('#eventGrid');
   if (!grid) return;
-  grid.innerHTML = (content.events || []).filter(item => item.enabled !== false).map(item => `
-    <article class="event-card">
-      <span class="event-type">${item.event_type === 'social' ? '社群活動' : '實體活動'}</span>
-      <h3>${item.title || ''}</h3>
-      <div class="event-meta">
-        <span>日期：${item.date || 'TBD'}</span>
-        <span>時間：${item.time || 'TBD'}</span>
-        <span>地點：${item.location || 'TBD'}</span>
-      </div>
-      <p>${item.description || ''}</p>
-      <a class="text-link" href="${safeUrl(item.cta_url, '#events')}">${item.cta_text || '查看活動資訊'}</a>
-    </article>
-  `).join('');
+  grid.innerHTML = (content.events || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .map(item => {
+      const hasCta = item.cta_text && !isEmptyUrl(item.cta_url);
+      return `
+        <article class="event-card">
+          <span class="event-type">${item.event_type === 'social' ? '社群活動' : '實體活動'}</span>
+          <h3>${escapeHtml(item.title || '')}</h3>
+          <div class="event-meta">
+            <span>日期：${textWithBreaks(item.date || 'TBD')}</span>
+            <span>時間：${textWithBreaks(item.time || 'TBD')}</span>
+            <span>地點：${textWithBreaks(item.location || 'TBD')}</span>
+          </div>
+          <p>${escapeHtml(item.description || '')}</p>
+          ${hasCta ? `<a class="text-link" href="${escapeHtml(safeUrl(item.cta_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.cta_text)}</a>` : ''}
+        </article>
+      `;
+    }).join('');
 }
 
 function renderNotices(content) {
@@ -110,8 +151,8 @@ function renderNotices(content) {
     .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
     .map((item, index) => `
       <details class="notice-item" ${index === 0 ? 'open' : ''}>
-        <summary><span><span class="notice-category">${item.category || ''}</span>${item.title || ''}</span></summary>
-        <div class="notice-content">${item.content || ''}</div>
+        <summary><span><span class="notice-category">${escapeHtml(item.category || '')}</span>${escapeHtml(item.title || '')}</span></summary>
+        <div class="notice-content">${escapeHtml(item.content || '')}</div>
       </details>
     `).join('');
 }

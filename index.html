@@ -17,6 +17,7 @@
       <span class="brand-text">GO HEALTH</span>
     </a>
     <nav class="nav-links" aria-label="主要導覽">
+      <a href="#product_intro">服務介紹</a>
       <a href="#features">服務亮點</a>
       <a href="#campaign">社群活動</a>
       <a href="#events">實體活動</a>
@@ -38,7 +39,7 @@
         <p class="hero-copy" data-field="body">透過腦健康小遊戲、日常健康任務與家庭陪伴，和家人一起把健康變成每天的小習慣。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-field="cta" href="https://www.hgs.tw/fp/?t=00M8">立即體驗 GO HEALTH</a>
-          <a class="btn btn-ghost" href="#events">查看活動資訊</a>
+          <a class="btn btn-ghost" href="#events">查看現場活動</a>
         </div>
         <div class="hero-qr" id="heroQr" hidden>
           <img id="heroQrImg" src="assets/images/happy-go-go-health-qrcode.png" alt="HAPPY GO APP QR Code">
@@ -51,7 +52,7 @@
     </section>
 
     <section class="section intro-section" id="product_intro">
-      <div class="section-inner two-col">
+      <div class="section-inner two-col intro-layout">
         <div class="section-copy" data-section="product_intro">
           <p class="section-eyebrow">ABOUT GO HEALTH</p>
           <h2 data-field="title">GO HEALTH 是什麼？</h2>
@@ -59,10 +60,25 @@
           <p data-field="body">GO HEALTH 透過腦健康小遊戲、日常健康任務、家庭陪伴與衛教內容，陪你用更輕鬆的方式關心自己與家人的健康。</p>
           <a class="text-link" data-field="cta" href="#features">了解服務亮點</a>
         </div>
-        <div class="intro-card" aria-label="服務概念">
-          <div class="floating-card card-green">每日小任務</div>
-          <div class="floating-card card-blue">腦健康互動</div>
-          <div class="floating-card card-peach">家人陪伴</div>
+        <div class="intro-visual" aria-label="GO HEALTH 服務概念示意">
+          <div class="phone-mockup">
+            <div class="phone-top"></div>
+            <div class="phone-card phone-card-main">
+              <span class="mini-icon">🧠</span>
+              <div>
+                <strong>今日腦健康互動</strong>
+                <small>和家人一起完成 3 分鐘小任務</small>
+              </div>
+            </div>
+            <div class="progress-panel">
+              <span>本週陪伴進度</span>
+              <div class="progress-line"><i></i></div>
+            </div>
+          </div>
+          <div class="orbit-card orbit-task">✅ 每日小任務</div>
+          <div class="orbit-card orbit-brain">🧠 腦健康互動</div>
+          <div class="orbit-card orbit-family">💛 家人陪伴</div>
+          <div class="orbit-card orbit-point">🎁 健康回饋</div>
         </div>
       </div>
     </section>
@@ -79,18 +95,29 @@
     </section>
 
     <section class="section campaign-section" id="campaign">
-      <div class="section-inner two-col reverse-mobile">
-        <div class="campaign-card" aria-hidden="true">
-          <span>#大腦重播快樂記憶</span>
+      <div class="section-inner two-col campaign-layout">
+        <div class="campaign-card" aria-label="世代記憶交換計畫活動示意">
+          <div class="campaign-tag">#大腦重播快樂記憶</div>
           <div class="memory-bubble">我聽過我家長輩最厲害的一件事...</div>
           <div class="memory-bubble small">媽媽，你現在依然是我的超人！</div>
+          <div class="prize-card">
+            <span class="prize-icon">🎮</span>
+            <div>
+              <strong>8/31 前參加</strong>
+              <small>有機會抽 Nintendo Switch 2</small>
+            </div>
+          </div>
+          <div class="kol-card" aria-label="活動分享嘉賓">
+            <span>活動分享嘉賓</span>
+            <strong>陳彥婷 × 劉軒</strong>
+          </div>
         </div>
         <div class="section-copy" data-section="social_campaign">
           <p class="section-eyebrow">SOCIAL CAMPAIGN</p>
           <h2 data-field="title">世代記憶交換計畫</h2>
           <p class="lead" data-field="subtitle">#大腦重播快樂記憶</p>
           <p data-field="body">邀請你分享家中長輩最厲害的一件事，交換那些曾經發光的回憶。</p>
-          <a class="btn btn-primary" data-field="cta" href="#">參加抽獎</a>
+          <a class="btn btn-primary campaign-cta" data-field="cta" href="#">參加抽獎</a>
         </div>
       </div>
     </section>
@@ -100,16 +127,16 @@
         <div class="section-heading" data-section="offline_event">
           <p class="section-eyebrow">EVENTS</p>
           <h2 data-field="title">GO HEALTH 現場互動體驗</h2>
-          <p data-field="subtitle">亞東醫院講座 × 高齡產業博覽會</p>
+          <p data-field="subtitle">亞東醫院講座 × 2026 高齡健康產業博覽會</p>
         </div>
         <div class="event-grid" id="eventGrid"></div>
-        <div class="partner-strip" aria-label="合作單位與入口">
+        <div class="partner-strip" aria-label="合作單位">
+          <div class="partner-note">合作單位</div>
           <div class="partner-logos">
             <img id="happyGoLogo" src="assets/images/logo-happygo.png" alt="HAPPY GO">
             <span class="partner-x">×</span>
             <img id="femhLogo" src="assets/images/logo-femh.png" alt="亞東紀念醫院">
           </div>
-          <a class="btn btn-secondary" href="https://www.hgs.tw/fp/?t=00M8">開啟 GO HEALTH</a>
         </div>
       </div>
     </section>
