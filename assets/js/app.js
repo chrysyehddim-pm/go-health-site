@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v4';
+const CONTENT_URL = './content.json?v=20260610v5';
 
 const fallbackContent = {
   global: {
@@ -171,7 +171,7 @@ function renderFooter(content) {
 
 
 function setupMotionEffects() {
-  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-card, .feature-card, .event-card, .partner-strip, .notice-item');
+  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-kv-card, .campaign-story-card, .campaign-card, .feature-card, .event-card, .partner-strip, .notice-item');
   targets.forEach((el, index) => {
     el.classList.add('reveal-init');
     el.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 80}ms`);

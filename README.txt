@@ -16,3 +16,11 @@ GO HEALTH 活動網站 v3
 cd go-health-site
 python -m http.server 8000
 然後開啟 http://localhost:8000
+
+
+[v5 更新]
+- 整合世代記憶交換計畫主視覺：assets/images/campaign-kv-desktop.webp、campaign-kv-mobile.webp。
+- 新增線上分享與現場記憶郵局兩張參與方式卡。
+- 更新亞東醫院活動名稱為「腦健康分享講座 × 記憶郵局」。
+- 更新 notices 順序與 n011 記憶郵局說明。
+- CSS / JS / JSON 皆已加 v5 cache busting。

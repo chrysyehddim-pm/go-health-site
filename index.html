@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260610v4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260610v5" />
 </head>
 <body>
   <header class="site-header" aria-label="GO HEALTH 網站導覽">
@@ -95,29 +95,45 @@
     </section>
 
     <section class="section campaign-section" id="campaign">
-      <div class="section-inner two-col campaign-layout">
-        <div class="campaign-card" aria-label="世代記憶交換計畫活動示意">
-          <div class="campaign-tag">#大腦重播快樂記憶</div>
-          <div class="memory-bubble">我聽過我家長輩最厲害的一件事...</div>
-          <div class="memory-bubble small">媽媽，你現在依然是我的超人！</div>
-          <div class="prize-card">
-            <span class="prize-icon">🎮</span>
-            <div>
-              <strong>8/31 前參加</strong>
-              <small>有機會抽 Nintendo Switch 2</small>
+      <div class="section-inner campaign-inner">
+        <div class="two-col campaign-layout">
+          <figure class="campaign-kv-card" aria-label="世代記憶交換計畫主視覺">
+            <picture>
+              <source media="(max-width: 767px)" srcset="assets/images/campaign-kv-mobile.webp">
+              <img src="assets/images/campaign-kv-desktop.webp" alt="長輩與家人分享人生中快樂輝煌的回憶" loading="lazy">
+            </picture>
+            <figcaption>
+              <span>#大腦重播快樂記憶</span>
+              <strong>線上留言 × 現場記憶郵局</strong>
+            </figcaption>
+          </figure>
+          <div class="section-copy campaign-copy" data-section="social_campaign">
+            <p class="section-eyebrow">SOCIAL CAMPAIGN</p>
+            <h2 data-field="title">世代記憶交換計畫</h2>
+            <p class="lead" data-field="subtitle">聽說，你當年超厲害？</p>
+            <p data-field="body">用時間與陪伴，交換長輩腦海中的快樂記憶。</p>
+            <div class="campaign-highlights" aria-label="活動重點">
+              <div><strong>8/31 前參加</strong><span>留言分享就有機會抽 Nintendo Switch 2</span></div>
+              <div><strong>活動分享嘉賓</strong><span>陳彥婷 × 劉軒</span></div>
             </div>
-          </div>
-          <div class="kol-card" aria-label="活動分享嘉賓">
-            <span>活動分享嘉賓</span>
-            <strong>陳彥婷 × 劉軒</strong>
+            <a class="btn btn-primary campaign-cta" data-field="cta" href="#">參加抽獎</a>
           </div>
         </div>
-        <div class="section-copy" data-section="social_campaign">
-          <p class="section-eyebrow">SOCIAL CAMPAIGN</p>
-          <h2 data-field="title">世代記憶交換計畫</h2>
-          <p class="lead" data-field="subtitle">#大腦重播快樂記憶</p>
-          <p data-field="body">邀請你分享家中長輩最厲害的一件事，交換那些曾經發光的回憶。</p>
-          <a class="btn btn-primary campaign-cta" data-field="cta" href="#">參加抽獎</a>
+        <div class="campaign-story-grid" aria-label="兩種方式交換記憶">
+          <article class="campaign-story-card">
+            <span class="story-icon">💬</span>
+            <div>
+              <h3>線上分享｜留言交換記憶</h3>
+              <p>到 HAPPY GO 官方社群留言，分享你聽過家中長輩最厲害的一件事，讓長輩的光芒記憶重新被看見。</p>
+            </div>
+          </article>
+          <article class="campaign-story-card">
+            <span class="story-icon">✉️</span>
+            <div>
+              <h3>現場寄出｜記憶郵局明信片</h3>
+              <p>到亞東醫院活動現場，寫下長輩最快樂、最輝煌的回憶，將這份記憶寄給家人，也把陪伴帶回日常。</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -161,6 +177,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=20260610v4"></script>
+  <script src="assets/js/app.js?v=20260610v5"></script>
 </body>
 </html>
