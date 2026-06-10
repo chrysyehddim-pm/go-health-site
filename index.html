@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260610v5" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260610v6" />
 </head>
 <body>
   <header class="site-header" aria-label="GO HEALTH 網站導覽">
@@ -19,8 +19,8 @@
     <nav class="nav-links" aria-label="主要導覽">
       <a href="#product_intro">服務介紹</a>
       <a href="#features">服務亮點</a>
-      <a href="#campaign">社群活動</a>
-      <a href="#events">實體活動</a>
+      <a href="#campaign">世代記憶交換</a>
+      <a href="#events">場次資訊</a>
       <a href="#notice">注意事項</a>
     </nav>
   </header>
@@ -38,14 +38,13 @@
         <h1 data-field="title">每天 3 分鐘，和家人一起動動腦</h1>
         <p class="hero-copy" data-field="body">透過腦健康小遊戲、日常健康任務與家庭陪伴，和家人一起把健康變成每天的小習慣。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" data-field="cta" href="https://www.hgs.tw/fp/?t=00M8">立即體驗 GO HEALTH</a>
-          <a class="btn btn-ghost" href="#events">查看現場活動</a>
+          <a class="btn btn-primary hero-mobile-only" data-field="cta" href="https://www.hgs.tw/fp/?t=00M8">立即開啟 GO HEALTH</a>
         </div>
         <div class="hero-qr" id="heroQr" hidden>
           <img id="heroQrImg" src="assets/images/happy-go-go-health-qrcode.svg" alt="HAPPY GO APP QR Code">
           <div>
             <strong>掃描 QR Code</strong>
-            <span>開啟 HAPPY GO APP 體驗</span>
+            <span>手機開啟 GO HEALTH</span>
           </div>
         </div>
       </div>
@@ -94,46 +93,44 @@
       </div>
     </section>
 
-    <section class="section campaign-section" id="campaign">
+    <section class="section campaign-section campaign-master-section" id="campaign">
       <div class="section-inner campaign-inner">
-        <div class="two-col campaign-layout">
+        <div class="campaign-master-heading" data-section="social_campaign">
+          <p class="section-eyebrow">LAUNCH CAMPAIGN</p>
+          <h2 data-field="title">世代記憶交換計畫</h2>
+          <p class="lead" data-field="subtitle">聽說，你當年超厲害？</p>
+        </div>
+
+        <div class="campaign-hero-panel">
           <figure class="campaign-kv-card" aria-label="世代記憶交換計畫主視覺">
             <picture>
               <source media="(max-width: 767px)" srcset="assets/images/campaign-kv-mobile.webp">
               <img src="assets/images/campaign-kv-desktop.webp" alt="長輩與家人分享人生中快樂輝煌的回憶" loading="lazy">
             </picture>
             <figcaption>
-              <span>#大腦重播快樂記憶</span>
-              <strong>線上留言 × 現場記憶郵局</strong>
+              <span>聽說，你當年超厲害？</span>
+              <strong>把快樂記憶寄給家人</strong>
             </figcaption>
           </figure>
-          <div class="section-copy campaign-copy" data-section="social_campaign">
-            <p class="section-eyebrow">SOCIAL CAMPAIGN</p>
-            <h2 data-field="title">世代記憶交換計畫</h2>
-            <p class="lead" data-field="subtitle">聽說，你當年超厲害？</p>
+          <div class="campaign-hero-copy" data-section="social_campaign">
             <p data-field="body">用時間與陪伴，交換長輩腦海中的快樂記憶。</p>
-            <div class="campaign-highlights" aria-label="活動重點">
-              <div><strong>8/31 前參加</strong><span>留言分享就有機會抽 Nintendo Switch 2</span></div>
-              <div><strong>活動分享嘉賓</strong><span>陳彥婷 × 劉軒</span></div>
+            <div class="campaign-dialogues" aria-hidden="true">
+              <span>那時候的我，可勇敢了！</span>
+              <span>第一次參加舞會，好緊張！</span>
+              <span>原來長輩的故事這麼精彩</span>
             </div>
-            <a class="btn btn-primary campaign-cta" data-field="cta" href="#">參加抽獎</a>
           </div>
         </div>
-        <div class="campaign-story-grid" aria-label="兩種方式交換記憶">
-          <article class="campaign-story-card">
-            <span class="story-icon">💬</span>
-            <div>
-              <h3>線上分享｜留言交換記憶</h3>
-              <p>到 HAPPY GO 官方社群留言，分享你聽過家中長輩最厲害的一件事，讓長輩的光芒記憶重新被看見。</p>
-            </div>
-          </article>
-          <article class="campaign-story-card">
-            <span class="story-icon">✉️</span>
-            <div>
-              <h3>現場寄出｜記憶郵局明信片</h3>
-              <p>到亞東醫院活動現場，寫下長輩最快樂、最輝煌的回憶，將這份記憶寄給家人，也把陪伴帶回日常。</p>
-            </div>
-          </article>
+
+        <div class="reward-grid" id="rewardGrid" aria-label="活動好禮"></div>
+
+        <div class="campaign-trilogy-block">
+          <div class="campaign-trilogy-heading">
+            <p class="section-eyebrow">CAMPAIGN PROGRAM</p>
+            <h3>記憶交換三重奏</h3>
+            <p>同一個主題，三種參與方式：線上說出記憶、現場寄出記憶，再到展場延續記憶互動。</p>
+          </div>
+          <div class="campaign-trilogy-grid" id="campaignTrilogyGrid" aria-label="記憶交換三重奏"></div>
         </div>
       </div>
     </section>
@@ -142,9 +139,10 @@
       <div class="section-inner">
         <div class="section-heading" data-section="offline_event">
           <p class="section-eyebrow">EVENTS</p>
-          <h2 data-field="title">GO HEALTH 現場互動體驗</h2>
-          <p data-field="subtitle">亞東醫院講座 × 2026 高齡健康產業博覽會</p>
+          <h2 data-field="title">活動場次資訊</h2>
+          <p data-field="subtitle">亞東醫院記憶郵局 × 高齡博覽會互動體驗</p>
         </div>
+        <p class="event-section-copy" data-section="offline_event" data-field="body">世代記憶交換計畫將延伸至實體場域，讓長輩的快樂記憶在現場被寫下、寄出與分享。</p>
         <div class="event-grid" id="eventGrid"></div>
         <div class="partner-strip" aria-label="主辦單位">
           <div class="partner-note">主辦單位</div>
@@ -177,6 +175,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=20260610v5"></script>
+  <script src="assets/js/app.js?v=20260610v6"></script>
 </body>
 </html>

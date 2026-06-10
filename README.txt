@@ -24,3 +24,11 @@ python -m http.server 8000
 - 更新亞東醫院活動名稱為「腦健康分享講座 × 記憶郵局」。
 - 更新 notices 順序與 n011 記憶郵局說明。
 - CSS / JS / JSON 皆已加 v5 cache busting。
+
+
+--- v6 更新重點 ---
+- 重整世代記憶交換計畫為 Launch Campaign 母主軸。
+- 桌機版 Hero 不再顯示立即體驗按鈕，改以 QR Code 為主；手機版保留開啟 GO HEALTH 按鈕。
+- Campaign 區新增 Switch 2 / GO HEALTH 萬點誘因卡。
+- 新增記憶交換三重奏：線上留言、記憶郵局、高齡博覽會。
+- 活動場次資訊只保留實體活動，不再與社群活動拆裂。

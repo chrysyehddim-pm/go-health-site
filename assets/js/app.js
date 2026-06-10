@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v5';
+const CONTENT_URL = './content.json?v=20260610v6';
 
 const fallbackContent = {
   global: {
@@ -13,7 +13,8 @@ const fallbackContent = {
   sections: [],
   features: [],
   events: [],
-  notices: []
+  notices: [],
+  rewards: []
 };
 
 function findSection(content, id) {
@@ -65,21 +66,18 @@ function setCta(cta, text, url, fallbackText = '') {
 function renderSectionText(content, sectionId) {
   const section = findSection(content, sectionId);
   if (!section) return;
-  const scope = document.querySelector(`[data-section="${sectionId}"]`);
-  if (!scope) return;
+  const scopes = document.querySelectorAll(`[data-section="${sectionId}"]`);
+  if (!scopes.length) return;
 
-  const fields = {
-    title: section.title,
-    subtitle: section.subtitle,
-    body: section.body
-  };
-  Object.entries(fields).forEach(([field, value]) => {
-    const target = scope.querySelector(`[data-field="${field}"]`);
-    if (target && value) target.textContent = value;
+  scopes.forEach(scope => {
+    const fields = { title: section.title, subtitle: section.subtitle, body: section.body };
+    Object.entries(fields).forEach(([field, value]) => {
+      const target = scope.querySelector(`[data-field="${field}"]`) || (scope.dataset.field === field ? scope : null);
+      if (target && value) target.textContent = value;
+    });
+    const cta = scope.querySelector('[data-field="cta"]');
+    if (cta) setCta(cta, section.cta_text, section.cta_url, cta.textContent);
   });
-
-  const cta = scope.querySelector('[data-field="cta"]');
-  if (cta) setCta(cta, section.cta_text, section.cta_url, cta.textContent);
 }
 
 function renderHero(content) {
@@ -102,12 +100,7 @@ function renderHero(content) {
 function renderFeatures(content) {
   const grid = document.querySelector('#featureGrid');
   if (!grid) return;
-  const icons = {
-    brain_game: '🧠',
-    daily_task: '✅',
-    family_companion: '💛',
-    health_content: '📖'
-  };
+  const icons = { brain_game: '🧠', daily_task: '✅', family_companion: '💛', health_content: '📖' };
   grid.innerHTML = (content.features || [])
     .filter(item => item.enabled !== false && item.status !== 'hidden')
     .map(item => `
@@ -120,16 +113,65 @@ function renderFeatures(content) {
     `).join('');
 }
 
+function renderRewards(content) {
+  const grid = document.querySelector('#rewardGrid');
+  if (!grid) return;
+  const rewards = (content.rewards || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
+  grid.innerHTML = rewards.map(item => `
+    <article class="reward-card reward-${escapeHtml(item.reward_id || 'item')}">
+      <div class="reward-copy">
+        <span>${escapeHtml(item.subtitle || '')}</span>
+        <h3>${escapeHtml(item.title || '')}</h3>
+        <p>${escapeHtml(item.body || '')}</p>
+      </div>
+      ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title || '活動獎項')}" loading="lazy">` : `<div class="reward-points" aria-hidden="true">萬點</div>`}
+    </article>
+  `).join('');
+}
+
+function ordinalLabel(index) {
+  return ['第一重', '第二重', '第三重'][index] || `第 ${index + 1} 重`;
+}
+
+function renderCampaignTrilogy(content) {
+  const grid = document.querySelector('#campaignTrilogyGrid');
+  if (!grid) return;
+  const icons = ['💬', '✉️', '🌿'];
+  const items = (content.events || [])
+    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .slice(0, 3);
+  grid.innerHTML = items.map((item, index) => {
+    const hasCta = item.cta_text && !isEmptyUrl(item.cta_url);
+    return `
+      <article class="trilogy-card trilogy-${index + 1}">
+        <div class="trilogy-top">
+          <span class="trilogy-step">${ordinalLabel(index)}</span>
+          <span class="trilogy-icon" aria-hidden="true">${icons[index] || '🌿'}</span>
+        </div>
+        <h3>${escapeHtml(item.title || '')}</h3>
+        <p>${escapeHtml(item.description || '')}</p>
+        <div class="trilogy-meta">
+          <span>${textWithBreaks(item.date || '')}</span>
+          <span>${textWithBreaks(item.location || '')}</span>
+        </div>
+        ${hasCta ? `<a class="text-link" href="${escapeHtml(safeUrl(item.cta_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.cta_text)}</a>` : ''}
+      </article>
+    `;
+  }).join('');
+}
+
 function renderEvents(content) {
   const grid = document.querySelector('#eventGrid');
   if (!grid) return;
   grid.innerHTML = (content.events || [])
-    .filter(item => item.enabled !== false && item.status !== 'hidden')
+    .filter(item => item.enabled !== false && item.status !== 'hidden' && item.event_type !== 'social')
     .map(item => {
       const hasCta = item.cta_text && !isEmptyUrl(item.cta_url);
       return `
         <article class="event-card">
-          <span class="event-type">${item.event_type === 'social' ? '社群活動' : '實體活動'}</span>
+          <span class="event-type">實體活動</span>
           <h3>${escapeHtml(item.title || '')}</h3>
           <div class="event-meta">
             <span>日期：${textWithBreaks(item.date || 'TBD')}</span>
@@ -169,9 +211,8 @@ function renderFooter(content) {
   if (footerCta) footerCta.href = content.global?.customerServiceUrl || footerCta.href;
 }
 
-
 function setupMotionEffects() {
-  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-kv-card, .campaign-story-card, .campaign-card, .feature-card, .event-card, .partner-strip, .notice-item');
+  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-master-heading, .campaign-kv-card, .campaign-hero-copy, .reward-card, .trilogy-card, .feature-card, .event-card, .partner-strip, .notice-item');
   targets.forEach((el, index) => {
     el.classList.add('reveal-init');
     el.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 80}ms`);
@@ -198,6 +239,8 @@ function renderAll(content) {
   ['product_intro', 'features', 'social_campaign', 'offline_event', 'notice', 'footer'].forEach(id => renderSectionText(content, id));
   renderHero(content);
   renderFeatures(content);
+  renderRewards(content);
+  renderCampaignTrilogy(content);
   renderEvents(content);
   renderNotices(content);
   renderLogos(content);
