@@ -1275,3 +1275,481 @@ img{max-width:100%;display:block}
     padding:8px 11px;
   }
 }
+
+/* v8.8 visual tuning: campaign layout + intro icon refinement */
+
+/* Desktop / tablet */
+.campaign-dynamic-visual .layer-person-senior{
+  width:40%;
+  left:2%;
+  bottom:9%;
+}
+.campaign-dynamic-visual .layer-person-young{
+  width:40%;
+  right:2%;
+  bottom:9%;
+}
+.campaign-dynamic-visual .layer-table-foreground{
+  object-position:center bottom;
+}
+/* Memory cluster: closer to original grouped composition */
+.campaign-dynamic-visual .memory-stage{
+  left:18%;
+  top:5%;
+  width:22%;
+}
+.campaign-dynamic-visual .memory-scooter{
+  left:40%;
+  top:5%;
+  width:18%;
+}
+.campaign-dynamic-visual .memory-basketball{
+  right:17%;
+  top:6%;
+  width:18%;
+}
+.campaign-dynamic-visual .memory-wedding{
+  left:29%;
+  top:23%;
+  width:14%;
+}
+.campaign-dynamic-visual .memory-oldstreet{
+  left:43%;
+  top:22%;
+  width:17%;
+}
+.campaign-dynamic-visual .memory-family{
+  left:39%;
+  top:37%;
+  width:22%;
+  right:auto;
+}
+
+@media (max-width:1200px){
+  .campaign-dynamic-visual .layer-person-senior{width:42%; left:1%; bottom:9%;}
+  .campaign-dynamic-visual .layer-person-young{width:42%; right:1%; bottom:9%;}
+  .campaign-dynamic-visual .memory-stage{left:15%; top:5%; width:24%;}
+  .campaign-dynamic-visual .memory-scooter{left:39%; top:5%; width:20%;}
+  .campaign-dynamic-visual .memory-basketball{right:13%; top:6%; width:20%;}
+  .campaign-dynamic-visual .memory-wedding{left:25%; top:24%; width:17%;}
+  .campaign-dynamic-visual .memory-oldstreet{left:43%; top:23%; width:19%;}
+  .campaign-dynamic-visual .memory-family{left:38%; top:38%; width:24%;}
+}
+
+@media (max-width:980px){
+  .campaign-dynamic-visual .layer-person-senior{width:44%; left:0; bottom:10%;}
+  .campaign-dynamic-visual .layer-person-young{width:44%; right:0; bottom:10%;}
+  .campaign-dynamic-visual .memory-stage{left:12%; top:6%; width:24%;}
+  .campaign-dynamic-visual .memory-scooter{left:39%; top:5%; width:21%;}
+  .campaign-dynamic-visual .memory-basketball{right:10%; top:7%; width:21%;}
+  .campaign-dynamic-visual .memory-wedding{left:24%; top:24%; width:18%;}
+  .campaign-dynamic-visual .memory-oldstreet{left:43%; top:23%; width:20%;}
+  .campaign-dynamic-visual .memory-family{left:39%; top:38%; width:24%;}
+}
+
+/* Mobile: smaller characters, lower placement, bubbles clearly above */
+@media (max-width:767px){
+  .campaign-dynamic-visual{
+    min-height:560px;
+  }
+  .campaign-dynamic-visual .layer-person-senior{
+    width:62%;
+    left:-10%;
+    bottom:7%;
+  }
+  .campaign-dynamic-visual .layer-person-young{
+    width:64%;
+    right:-12%;
+    bottom:7%;
+  }
+  .campaign-dynamic-visual .layer-table-foreground{
+    width:138%;
+    left:-19%;
+  }
+  .campaign-dynamic-visual .memory-stage{
+    left:8%;
+    top:7%;
+    width:33%;
+  }
+  .campaign-dynamic-visual .memory-scooter{
+    left:38%;
+    top:7%;
+    width:28%;
+    right:auto;
+  }
+  .campaign-dynamic-visual .memory-basketball{
+    display:block!important;
+    right:6%;
+    top:10%;
+    width:27%;
+  }
+  .campaign-dynamic-visual .memory-wedding{
+    left:19%;
+    top:24%;
+    width:24%;
+  }
+  .campaign-dynamic-visual .memory-oldstreet{
+    display:none!important;
+  }
+  .campaign-dynamic-visual .memory-family{
+    left:50%;
+    top:25%;
+    width:29%;
+    transform:translateX(-8%);
+  }
+  .campaign-dynamic-visual .campaign-visual-dialogues{
+    bottom:14px;
+  }
+}
+
+/* GO HEALTH intro floating icons refinement */
+.intro-floating-stage{
+  min-height:520px;
+}
+.intro-float-icon.icon-task{
+  width:min(46%,280px);
+  top:50%;
+}
+.intro-float-icon.icon-family{
+  width:min(29%,176px);
+  left:10%;
+  bottom:10%;
+}
+.intro-float-icon.icon-brain{
+  width:min(25%,154px);
+  right:9%;
+  bottom:11%;
+}
+.intro-float-icon.icon-pointcoin{
+  width:min(22%,138px);
+  left:10%;
+  top:11%;
+}
+.intro-float-icon.icon-heart{
+  width:min(19%,118px);
+  right:10%;
+  top:11%;
+}
+.intro-float-icon.icon-leaf{
+  width:min(17%,104px);
+  left:26%;
+  top:auto;
+  bottom:18%;
+  z-index:2;
+}
+
+@media (max-width:980px){
+  .intro-floating-stage{min-height:440px;}
+  .intro-float-icon.icon-task{width:min(52%,240px);}
+  .intro-float-icon.icon-family{width:min(30%,160px);}
+  .intro-float-icon.icon-brain{width:min(26%,144px);}
+  .intro-float-icon.icon-leaf{width:90px; left:24%; bottom:16%;}
+}
+
+@media (max-width:767px){
+  .intro-floating-stage{
+    min-height:400px;
+    border-radius:28px;
+  }
+  .intro-float-icon.icon-task{
+    width:min(72%,250px);
+    top:51%;
+  }
+  .intro-float-icon.icon-pointcoin{
+    width:92px;
+    left:8%;
+    top:10%;
+  }
+  .intro-float-icon.icon-heart{
+    width:92px;
+    right:8%;
+    top:10%;
+  }
+  .intro-float-icon.icon-family,
+  .intro-float-icon.icon-brain{
+    display:block;
+    width:90px;
+  }
+  .intro-float-icon.icon-family{
+    left:8%;
+    bottom:12%;
+  }
+  .intro-float-icon.icon-brain{
+    right:8%;
+    bottom:12%;
+  }
+  .intro-float-icon.icon-leaf{
+    width:86px;
+    left:22%;
+    bottom:17%;
+    right:auto;
+    top:auto;
+  }
+}
+
+
+/* v8.9 final campaign + intro adjustments */
+.campaign-dynamic-visual .campaign-memory-layer{display:none!important;}
+.campaign-dynamic-visual .campaign-memory-group{
+  position:absolute;
+  left:50%;
+  top:4.2%;
+  width:64%;
+  height:auto;
+  transform:translateX(-50%);
+  z-index:8;
+  opacity:0;
+  filter:drop-shadow(0 16px 24px rgba(123,91,45,.10));
+  animation:campaignElementEnter .9s ease both .22s, campaignFloat 7.2s ease-in-out infinite 1.3s;
+  will-change:transform;
+  pointer-events:none;
+}
+.campaign-dynamic-visual .layer-person{
+  z-index:12;
+}
+.campaign-dynamic-visual .layer-person-senior{
+  width:41%;
+  left:0.5%;
+  bottom:9.5%;
+}
+.campaign-dynamic-visual .layer-person-young{
+  width:41%;
+  right:0.5%;
+  bottom:9.5%;
+}
+.campaign-dynamic-visual .layer-table-foreground{
+  z-index:18;
+  object-position:center bottom;
+}
+@media (max-width:1200px){
+  .campaign-dynamic-visual .campaign-memory-group{width:68%; top:4.5%;}
+  .campaign-dynamic-visual .layer-person-senior{width:42%; left:0; bottom:9.5%;}
+  .campaign-dynamic-visual .layer-person-young{width:42%; right:0; bottom:9.5%;}
+}
+@media (max-width:980px){
+  .campaign-dynamic-visual .campaign-memory-group{width:72%; top:4.5%;}
+  .campaign-dynamic-visual .layer-person-senior{width:43%; left:-1%; bottom:9%;}
+  .campaign-dynamic-visual .layer-person-young{width:43%; right:-1%; bottom:9%;}
+}
+@media (max-width:767px){
+  .campaign-dynamic-visual{
+    aspect-ratio:4/5;
+    min-height:560px;
+  }
+  .campaign-dynamic-visual .campaign-memory-group{
+    width:84%;
+    top:5%;
+    left:50%;
+    transform:translateX(-50%);
+  }
+  .campaign-dynamic-visual .layer-person-senior{
+    width:64%;
+    left:-5%;
+    bottom:10.5%;
+  }
+  .campaign-dynamic-visual .layer-person-young{
+    width:66%;
+    right:-7%;
+    bottom:10.5%;
+  }
+  .campaign-dynamic-visual .layer-table-foreground{
+    width:120%;
+    left:-10%;
+    right:auto;
+    object-position:center bottom;
+  }
+}
+
+/* GO HEALTH intro floating stage refinement */
+.intro-floating-stage{
+  min-height:520px;
+}
+.intro-float-icon{
+  filter:drop-shadow(0 12px 22px rgba(70,116,98,.12));
+}
+.intro-float-icon.icon-task{
+  width:min(50%,300px);
+  left:50%;
+  top:51%;
+}
+.intro-float-icon.icon-pointcoin{
+  width:min(20%,122px);
+  left:11%;
+  top:12%;
+}
+.intro-float-icon.icon-heart{
+  width:min(18%,112px);
+  right:11%;
+  top:11%;
+}
+.intro-float-icon.icon-family{
+  width:min(28%,170px);
+  left:10%;
+  bottom:11%;
+}
+.intro-float-icon.icon-brain{
+  width:min(24%,148px);
+  right:10%;
+  bottom:12%;
+}
+.intro-float-icon.icon-leaf{
+  width:min(15%,88px);
+  left:50%;
+  right:auto;
+  top:auto;
+  bottom:12%;
+  transform:translateX(-50%);
+}
+@media (max-width:980px){
+  .intro-floating-stage{min-height:440px;}
+  .intro-float-icon.icon-task{width:min(58%,250px);}
+  .intro-float-icon.icon-family{width:min(28%,150px);}
+  .intro-float-icon.icon-brain{width:min(24%,134px);}
+}
+@media (max-width:767px){
+  .intro-floating-stage{
+    min-height:410px;
+    border-radius:28px;
+  }
+  .intro-float-icon.icon-task{
+    width:min(78%,272px);
+    top:52%;
+  }
+  .intro-float-icon.icon-pointcoin{
+    width:78px;
+    left:8%;
+    top:11%;
+  }
+  .intro-float-icon.icon-heart{
+    width:76px;
+    right:8%;
+    top:11%;
+  }
+  .intro-float-icon.icon-family{
+    width:88px;
+    left:8%;
+    bottom:13%;
+    display:block;
+  }
+  .intro-float-icon.icon-brain{
+    width:88px;
+    right:8%;
+    bottom:13%;
+    display:block;
+  }
+  .intro-float-icon.icon-leaf{
+    width:68px;
+    left:50%;
+    bottom:14%;
+    transform:translateX(-50%);
+  }
+}
+
+@keyframes campaignElementEnter{from{opacity:0;transform:translateX(-50%) translateY(14px) scale(.98)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
+@keyframes campaignFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+
+
+/* v8.10 Final Campaign visual tuning
+   - Uses new cleaned memory-bubble.webp
+   - Desktop keeps confirmed Option B proportions
+   - Mobile keeps confirmed final proportions
+*/
+
+/* Hide old individual bubbles if they still exist in markup */
+.campaign-dynamic-visual .campaign-memory-layer{
+  display:none !important;
+}
+
+/* Desktop: confirmed proportion */
+.campaign-dynamic-visual .campaign-memory-group{
+  position:absolute;
+  width:82% !important;
+  max-width:none !important;
+  left:50% !important;
+  top:2.5% !important;
+  transform:translateX(-50%) !important;
+  transform-origin:center top !important;
+  z-index:8 !important;
+  opacity:1 !important;
+  filter:drop-shadow(0 16px 24px rgba(123,91,45,.10));
+  animation:campaignMemoryGroupEnterV810 .9s ease both .18s, campaignMemoryGroupFloatV810 7.2s ease-in-out infinite 1.2s;
+  pointer-events:none;
+}
+
+.campaign-dynamic-visual .layer-person-senior{
+  width:43% !important;
+  left:-3% !important;
+  bottom:9.5% !important;
+  z-index:12 !important;
+}
+
+.campaign-dynamic-visual .layer-person-young{
+  width:43% !important;
+  right:-3% !important;
+  bottom:9.5% !important;
+  z-index:12 !important;
+}
+
+.campaign-dynamic-visual .layer-table-foreground{
+  width:100% !important;
+  left:0 !important;
+  right:auto !important;
+  bottom:0 !important;
+  z-index:18 !important;
+  object-fit:cover;
+  object-position:center bottom;
+}
+
+/* Mobile: confirmed after tuning */
+@media (max-width:767px){
+  .campaign-dynamic-visual .campaign-memory-group{
+    width:152% !important;
+    max-width:none !important;
+    left:50% !important;
+    top:2% !important;
+    transform:translateX(-50%) scale(1.04) !important;
+    transform-origin:center top !important;
+    animation:none !important;
+    opacity:1 !important;
+    z-index:8 !important;
+  }
+
+  .campaign-dynamic-visual .layer-person-senior{
+    width:66% !important;
+    left:-6% !important;
+    bottom:-2% !important;
+    z-index:12 !important;
+  }
+
+  .campaign-dynamic-visual .layer-person-young{
+    width:68% !important;
+    right:-8% !important;
+    bottom:-2% !important;
+    z-index:12 !important;
+  }
+
+  .campaign-dynamic-visual .layer-table-foreground{
+    inset:auto auto -1% -2% !important;
+    width:104% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center bottom !important;
+    z-index:18 !important;
+  }
+}
+
+@keyframes campaignMemoryGroupEnterV810{
+  from{
+    opacity:0;
+    transform:translateX(-50%) translateY(14px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes campaignMemoryGroupFloatV810{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(-6px);}
+}
