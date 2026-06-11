@@ -897,3 +897,381 @@ img{max-width:100%;display:block}
 @media (prefers-reduced-motion: reduce){
   .campaign-kv-static .campaign-hero-image{animation:none!important;transform:none!important;}
 }
+
+
+/* v8.5 Campaign hero real layered animation */
+.campaign-dynamic-visual{
+  position:relative;
+  aspect-ratio:16/9;
+  width:100%;
+  min-height:auto;
+  border-radius:36px;
+  overflow:hidden;
+  background:#fffdf7;
+  border:1px solid rgba(120,200,160,.22);
+  box-shadow:0 28px 76px rgba(70,116,98,.18);
+  isolation:isolate;
+}
+.campaign-dynamic-visual:after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:20;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 62%,rgba(255,253,247,.08) 100%);
+}
+.campaign-dynamic-visual .campaign-layer,
+.campaign-dynamic-visual .campaign-memory-layer{
+  position:absolute;
+  user-select:none;
+  pointer-events:none;
+  max-width:none;
+}
+.campaign-dynamic-visual .layer-bg{
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:1;
+  animation:campaignBgBreatheV85 12s ease-in-out infinite;
+}
+.campaign-dynamic-visual .layer-people{
+  z-index:12;
+  width:72%;
+  left:14%;
+  bottom:-34%;
+  filter:drop-shadow(0 18px 24px rgba(70,116,98,.10));
+  animation:campaignPeopleEnterV85 .9s ease both .35s, campaignPeopleFloatV85 7.5s ease-in-out infinite 1.2s;
+}
+.campaign-dynamic-visual .layer-foreground{
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:18;
+  opacity:.34;
+  animation:campaignForegroundDriftV85 11s ease-in-out infinite;
+}
+.campaign-dynamic-visual .campaign-memory-layer{
+  z-index:8;
+  opacity:0;
+  transform-origin:center;
+  filter:drop-shadow(0 18px 20px rgba(123,91,45,.08));
+  animation:memoryBubbleEnterV85 .75s ease forwards, memoryBubbleFloatV85 6.6s ease-in-out infinite;
+}
+.campaign-dynamic-visual .memory-stage{left:18%;top:6%;width:26%;animation-delay:.1s,1.05s;}
+.campaign-dynamic-visual .memory-scooter{left:43%;top:5%;width:22%;animation-delay:.28s,1.2s;}
+.campaign-dynamic-visual .memory-basketball{right:14%;top:9%;width:22%;animation-delay:.46s,1.38s;}
+.campaign-dynamic-visual .memory-wedding{left:23%;top:35%;width:20%;animation-delay:.64s,1.56s;}
+.campaign-dynamic-visual .memory-oldstreet{left:45%;top:34%;width:24%;animation-delay:.82s,1.74s;}
+.campaign-dynamic-visual .memory-family{right:12%;top:42%;width:25%;animation-delay:1s,1.92s;}
+.campaign-dynamic-visual .campaign-visual-dialogues{
+  position:absolute;
+  z-index:22;
+  left:7.5%;
+  bottom:8%;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  max-width:62%;
+}
+.campaign-dynamic-visual .campaign-visual-dialogues span{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:10px 16px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(120,200,160,.30);
+  color:#275946;
+  font-size:13px;
+  line-height:1.25;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(70,116,98,.12);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  animation:dialoguePopV85 .72s ease forwards 1.55s, dialogueFloatV85 5.4s ease-in-out infinite 2.25s;
+}
+.campaign-dynamic-visual .campaign-visual-dialogues span:nth-child(2){
+  background:rgba(255,248,233,.92);
+  animation-delay:1.75s,2.45s;
+}
+@keyframes campaignBgBreatheV85{0%,100%{transform:scale(1.01)}50%{transform:scale(1.035)}}
+@keyframes campaignPeopleEnterV85{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes campaignPeopleFloatV85{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes campaignForegroundDriftV85{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-7px,0) scale(1.012)}}
+@keyframes memoryBubbleEnterV85{from{opacity:0;transform:translateY(18px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes memoryBubbleFloatV85{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes dialoguePopV85{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes dialogueFloatV85{0%,100%{translate:0 0}50%{translate:0 -5px}}
+
+@media (max-width:980px){
+  .campaign-dynamic-visual .layer-people{width:76%;left:12%;bottom:-33%;}
+  .campaign-dynamic-visual .memory-stage{left:14%;top:7%;width:29%;}
+  .campaign-dynamic-visual .memory-scooter{left:43%;top:5%;width:24%;}
+  .campaign-dynamic-visual .memory-basketball{right:8%;top:10%;width:24%;}
+  .campaign-dynamic-visual .memory-wedding{left:17%;top:36%;width:22%;}
+  .campaign-dynamic-visual .memory-oldstreet{left:43%;top:35%;width:26%;}
+  .campaign-dynamic-visual .memory-family{right:7%;top:44%;width:28%;}
+}
+@media (max-width:767px){
+  .campaign-dynamic-visual{
+    aspect-ratio:4/5;
+    border-radius:30px;
+  }
+  .campaign-dynamic-visual .layer-bg{
+    object-position:38% center;
+    transform:scale(1.08);
+  }
+  .campaign-dynamic-visual .layer-people{
+    width:128%;
+    left:-14%;
+    bottom:-28%;
+  }
+  .campaign-dynamic-visual .layer-foreground{
+    opacity:.28;
+    object-position:center;
+  }
+  .campaign-dynamic-visual .memory-stage{left:6%;top:7%;width:43%;}
+  .campaign-dynamic-visual .memory-scooter{left:47%;top:5%;width:42%;}
+  .campaign-dynamic-visual .memory-wedding{left:6%;top:31%;width:36%;}
+  .campaign-dynamic-visual .memory-family{right:4%;top:32%;width:43%;}
+  .campaign-dynamic-visual .memory-basketball,
+  .campaign-dynamic-visual .memory-oldstreet{display:none;}
+  .campaign-dynamic-visual .campaign-visual-dialogues{
+    left:14px;
+    right:14px;
+    bottom:14px;
+    max-width:none;
+    gap:8px;
+  }
+  .campaign-dynamic-visual .campaign-visual-dialogues span{
+    font-size:12px;
+    padding:8px 12px;
+    box-shadow:0 10px 24px rgba(70,116,98,.10);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .campaign-dynamic-visual .campaign-layer,
+  .campaign-dynamic-visual .campaign-memory-layer,
+  .campaign-dynamic-visual .campaign-visual-dialogues span{animation:none!important;opacity:1!important;transform:none!important;translate:0 0!important;}
+}
+
+/* v8.6 Campaign visual layout correction: keep animation, fix hierarchy */
+.campaign-dynamic-visual{
+  aspect-ratio:16/9;
+}
+.campaign-dynamic-visual:before{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:46%;
+  z-index:16;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,253,247,0) 0%,rgba(255,253,247,.58) 45%,rgba(250,241,217,.72) 100%);
+}
+.campaign-dynamic-visual .layer-bg{
+  object-position:center;
+}
+.campaign-dynamic-visual .layer-people{
+  z-index:12;
+  width:118%;
+  left:-9%;
+  right:auto;
+  bottom:-38%;
+  clip-path:inset(0 0 35% 0);
+  transform-origin:center bottom;
+}
+.campaign-dynamic-visual .layer-foreground{
+  z-index:18;
+  opacity:.96;
+  object-position:center bottom;
+}
+.campaign-dynamic-visual .campaign-memory-layer{
+  z-index:8;
+  filter:drop-shadow(0 14px 20px rgba(123,91,45,.08));
+}
+.campaign-dynamic-visual .memory-stage{left:23%;top:4%;width:18%;}
+.campaign-dynamic-visual .memory-scooter{left:42%;top:4%;width:17%;}
+.campaign-dynamic-visual .memory-basketball{right:23%;top:6%;width:18%;}
+.campaign-dynamic-visual .memory-wedding{left:26%;top:24%;width:15%;}
+.campaign-dynamic-visual .memory-oldstreet{left:44%;top:22%;width:17%;}
+.campaign-dynamic-visual .memory-family{right:24%;top:25%;width:20%;}
+.campaign-dynamic-visual .campaign-visual-dialogues{
+  z-index:22;
+  left:8%;
+  bottom:7.2%;
+  max-width:74%;
+  justify-content:center;
+}
+
+@media (max-width:980px){
+  .campaign-dynamic-visual .layer-people{
+    width:126%;
+    left:-13%;
+    bottom:-40%;
+    clip-path:inset(0 0 35% 0);
+  }
+  .campaign-dynamic-visual .memory-stage{left:17%;top:5%;width:23%;}
+  .campaign-dynamic-visual .memory-scooter{left:40%;top:5%;width:20%;}
+  .campaign-dynamic-visual .memory-basketball{right:17%;top:7%;width:21%;}
+  .campaign-dynamic-visual .memory-wedding{left:21%;top:25%;width:18%;}
+  .campaign-dynamic-visual .memory-oldstreet{left:43%;top:23%;width:20%;}
+  .campaign-dynamic-visual .memory-family{right:17%;top:27%;width:23%;}
+}
+
+@media (max-width:767px){
+  .campaign-dynamic-visual{
+    aspect-ratio:4/5;
+  }
+  .campaign-dynamic-visual:before{
+    height:44%;
+    background:linear-gradient(180deg,rgba(255,253,247,0) 0%,rgba(255,253,247,.62) 48%,rgba(250,241,217,.76) 100%);
+  }
+  .campaign-dynamic-visual .layer-bg{
+    object-position:center;
+    transform:scale(1.04);
+  }
+  .campaign-dynamic-visual .layer-people{
+    width:178%;
+    left:-39%;
+    bottom:-34%;
+    clip-path:inset(0 0 38% 0);
+  }
+  .campaign-dynamic-visual .layer-foreground{
+    opacity:.98;
+    object-position:center bottom;
+  }
+  .campaign-dynamic-visual .memory-stage{left:9%;top:6%;width:40%;}
+  .campaign-dynamic-visual .memory-scooter{left:49%;top:7%;width:36%;}
+  .campaign-dynamic-visual .memory-wedding{left:11%;top:25%;width:32%;}
+  .campaign-dynamic-visual .memory-family{right:9%;top:26%;width:38%;}
+  .campaign-dynamic-visual .memory-basketball,
+  .campaign-dynamic-visual .memory-oldstreet{display:none;}
+  .campaign-dynamic-visual .campaign-visual-dialogues{
+    left:12px;
+    right:12px;
+    bottom:13px;
+    max-width:none;
+    justify-content:center;
+  }
+}
+
+/* v8.7 Campaign visual split-character correction */
+.campaign-dynamic-visual{
+  aspect-ratio:16/9;
+  min-height:430px;
+}
+.campaign-dynamic-visual:before{display:none;}
+.campaign-dynamic-visual .layer-bg{
+  object-position:center center;
+  z-index:1;
+  animation:campaignBgBreatheV85 12s ease-in-out infinite;
+}
+.campaign-dynamic-visual .layer-person{
+  z-index:12;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 24px rgba(70,116,98,.10));
+  animation:campaignPeopleEnterV85 .9s ease both .35s, campaignPeopleFloatV85 7.5s ease-in-out infinite 1.2s;
+}
+.campaign-dynamic-visual .layer-person-senior{
+  width:42%;
+  left:7%;
+  bottom:8%;
+}
+.campaign-dynamic-visual .layer-person-young{
+  width:42%;
+  right:7%;
+  bottom:8%;
+}
+.campaign-dynamic-visual .layer-table-foreground{
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center bottom;
+  z-index:18;
+  opacity:1;
+  animation:none;
+}
+.campaign-dynamic-visual .layer-foreground,
+.campaign-dynamic-visual .layer-people{display:none!important;}
+.campaign-dynamic-visual .campaign-memory-layer{
+  z-index:8;
+  filter:drop-shadow(0 14px 20px rgba(123,91,45,.08));
+}
+.campaign-dynamic-visual .memory-stage{left:22%;top:5%;width:22%;}
+.campaign-dynamic-visual .memory-scooter{left:40%;top:4%;width:19%;}
+.campaign-dynamic-visual .memory-basketball{right:17%;top:6%;width:20%;}
+.campaign-dynamic-visual .memory-wedding{left:28%;top:24%;width:18%;}
+.campaign-dynamic-visual .memory-oldstreet{left:43%;top:24%;width:18%;}
+.campaign-dynamic-visual .memory-family{right:20%;top:28%;width:23%;}
+.campaign-dynamic-visual .campaign-visual-dialogues{
+  z-index:24;
+  left:7%;
+  right:7%;
+  bottom:6.8%;
+  max-width:none;
+  justify-content:flex-start;
+}
+.campaign-dynamic-visual .campaign-visual-dialogues span{
+  font-size:14px;
+  padding:10px 16px;
+}
+@media (max-width:980px){
+  .campaign-dynamic-visual .layer-person-senior{width:45%;left:3%;bottom:8%;}
+  .campaign-dynamic-visual .layer-person-young{width:45%;right:3%;bottom:8%;}
+  .campaign-dynamic-visual .memory-stage{left:17%;top:5%;width:25%;}
+  .campaign-dynamic-visual .memory-scooter{left:40%;top:4%;width:22%;}
+  .campaign-dynamic-visual .memory-basketball{right:12%;top:7%;width:22%;}
+  .campaign-dynamic-visual .memory-wedding{left:22%;top:25%;width:21%;}
+  .campaign-dynamic-visual .memory-oldstreet{left:43%;top:23%;width:21%;}
+  .campaign-dynamic-visual .memory-family{right:14%;top:28%;width:25%;}
+}
+@media (max-width:767px){
+  .campaign-dynamic-visual{
+    aspect-ratio:4/5;
+    min-height:520px;
+  }
+  .campaign-dynamic-visual .layer-bg{
+    object-position:center center;
+    transform:scale(1.02);
+  }
+  .campaign-dynamic-visual .layer-person-senior{
+    width:82%;
+    left:-14%;
+    bottom:15%;
+  }
+  .campaign-dynamic-visual .layer-person-young{
+    width:86%;
+    right:-22%;
+    bottom:14%;
+  }
+  .campaign-dynamic-visual .layer-table-foreground{
+    width:145%;
+    left:-22%;
+    right:auto;
+    object-position:center bottom;
+  }
+  .campaign-dynamic-visual .memory-stage{left:5%;top:6%;width:43%;}
+  .campaign-dynamic-visual .memory-scooter{right:4%;left:auto;top:7%;width:40%;}
+  .campaign-dynamic-visual .memory-wedding{left:8%;top:25%;width:36%;}
+  .campaign-dynamic-visual .memory-family{right:6%;top:26%;width:42%;}
+  .campaign-dynamic-visual .memory-basketball,
+  .campaign-dynamic-visual .memory-oldstreet{display:none!important;}
+  .campaign-dynamic-visual .campaign-visual-dialogues{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    justify-content:center;
+    gap:8px;
+  }
+  .campaign-dynamic-visual .campaign-visual-dialogues span{
+    font-size:12px;
+    padding:8px 11px;
+  }
+}
