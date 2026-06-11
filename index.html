@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260610v8_2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20260610v8_4" />
 </head>
 <body>
   <header class="site-header" aria-label="GO HEALTH 網站導覽">
@@ -102,16 +102,16 @@
         </div>
 
         <div class="campaign-hero-panel">
-          <figure class="campaign-kv-card" aria-label="世代記憶交換計畫主視覺">
-            <picture>
-              <source media="(max-width: 767px)" srcset="assets/images/campaign-kv-mobile.webp">
-              <img src="assets/images/campaign-kv-desktop.webp" alt="長輩與家人分享人生中快樂輝煌的回憶" loading="lazy">
+          <div class="campaign-layered-visual campaign-kv-static" aria-label="世代記憶交換計畫主視覺">
+            <picture class="campaign-hero-picture">
+              <source media="(max-width: 767px)" srcset="assets/images/campaign/campaign-hero-mobile.webp">
+              <img class="campaign-hero-image" src="assets/images/campaign/campaign-hero-desktop.webp" alt="長輩與年輕家人在桌邊聊天，回憶泡泡浮現當年的快樂時刻" loading="lazy">
             </picture>
-            <figcaption>
+            <div class="campaign-visual-dialogues" aria-hidden="true">
               <span>聽說，你當年超厲害？</span>
-              <strong>把快樂記憶寄給家人</strong>
-            </figcaption>
-          </figure>
+              <span>把快樂記憶寄給家人</span>
+            </div>
+          </div>
           <div class="campaign-hero-copy" data-section="social_campaign">
             <p data-field="body">用時間與陪伴，交換長輩腦海中的快樂記憶。</p>
             <div class="campaign-dialogues" aria-hidden="true">
@@ -178,6 +178,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/app.js?v=20260610v8_2"></script>
+  <script src="assets/js/app.js?v=20260610v8_4"></script>
 </body>
 </html>

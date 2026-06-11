@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v8';
+const CONTENT_URL = './content.json?v=20260610v8_4';
 
 const fallbackContent = {
   global: {
@@ -256,7 +256,7 @@ function renderFooter(content) {
 }
 
 function setupMotionEffects() {
-  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-master-heading, .campaign-kv-card, .campaign-hero-copy, .reward-card, .trilogy-card, .kol-guides-heading, .kol-guide-card, .feature-card, .event-card, .partner-strip, .notice-item');
+  const targets = document.querySelectorAll('.hero-content, .section-copy, .section-heading, .intro-visual, .campaign-master-heading, .campaign-layered-visual, .campaign-hero-copy, .reward-card, .trilogy-card, .kol-guides-heading, .kol-guide-card, .feature-card, .event-card, .partner-strip, .notice-item');
   targets.forEach((el, index) => {
     el.classList.add('reveal-init');
     el.style.setProperty('--reveal-delay', `${Math.min(index % 5, 4) * 80}ms`);
