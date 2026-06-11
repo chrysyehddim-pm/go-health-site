@@ -1,4 +1,4 @@
-const CONTENT_URL = './content.json?v=20260610v7_1';
+const CONTENT_URL = './content.json?v=20260610v8';
 
 const fallbackContent = {
   global: {
@@ -136,7 +136,7 @@ function renderRewards(content) {
         <h3>${escapeHtml(item.title || '')}</h3>
         <p>${escapeHtml(item.body || '')}</p>
       </div>
-      ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title || '活動獎項')}" loading="lazy">` : `<div class="reward-points" aria-hidden="true">萬點</div>`}
+      ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title || '活動獎項')}" loading="lazy">` : `<div class="reward-coin-stack" aria-hidden="true"><span></span><span></span><span></span></div>`}
     </article>
   `).join('');
 }
@@ -189,7 +189,7 @@ function renderKols(content) {
     .sort((a, b) => (a.display_order || 0) - (b.display_order || 0));
   grid.innerHTML = items.map(item => `
     <article class="kol-guide-card">
-      <div class="kol-avatar" aria-hidden="true">${escapeHtml((item.name || '').slice(0, 1))}</div>
+      <div class="kol-avatar" aria-hidden="true">${item.image ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy">` : escapeHtml((item.name || '').slice(0, 1))}</div>
       <div class="kol-guide-copy">
         <h4>${escapeHtml(item.name || '')}</h4>
         <strong>${escapeHtml(item.title || '')}</strong>
@@ -207,6 +207,11 @@ function renderEvents(content) {
     .filter(item => item.enabled !== false && item.status !== 'hidden' && item.event_type !== 'social')
     .map(item => {
       const hasCta = item.cta_text && !isEmptyUrl(item.cta_url);
+      const address = item.address || '';
+      const mapUrl = item.map_url || '';
+      const addressMarkup = address
+        ? `<span>地址：${isEmptyUrl(mapUrl) ? escapeHtml(address) : `<a class="event-map-link" href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(address)}</a>`}</span>`
+        : '';
       return `
         <article class="event-card">
           <span class="event-type">實體活動</span>
@@ -215,6 +220,7 @@ function renderEvents(content) {
             <span>日期：${textWithBreaks(item.date || 'TBD')}</span>
             <span>時間：${textWithBreaks(item.time || 'TBD')}</span>
             <span>地點：${textWithBreaks(item.location || 'TBD')}</span>
+            ${addressMarkup}
           </div>
           <p>${escapeHtml(item.description || '')}</p>
           ${hasCta ? `<a class="text-link" href="${escapeHtml(safeUrl(item.cta_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.cta_text)}</a>` : ''}
@@ -282,7 +288,6 @@ function renderAll(content) {
   renderKols(content);
   renderEvents(content);
   renderNotices(content);
-  renderLogos(content);
   renderFooter(content);
   setupMotionEffects();
 }

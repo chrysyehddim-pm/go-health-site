@@ -514,3 +514,23 @@ img{max-width:100%;display:block}
   .kol-guide-copy p{font-size:15px;}
   .back-to-top{right:16px;bottom:88px;width:44px;height:44px;}
 }
+
+
+/* v8 refinements */
+.reward-card.reward-hg_points{background:linear-gradient(135deg,#eaf8f2 0%,#fffdf6 58%,#ffffff 100%);}
+.reward-card.reward-hg_points:before{background:rgba(246,215,122,.30);}
+.reward-card.reward-hg_points:after{content:'';position:absolute;right:78px;bottom:44px;width:92px;height:92px;border-radius:50%;background:rgba(167,216,240,.70);filter:blur(.2px);z-index:0;}
+.reward-coin-stack{position:relative;z-index:1;width:142px;height:120px;justify-self:end;align-self:end;}
+.reward-coin-stack span{position:absolute;width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,#F6D77A,#F6A65A);box-shadow:inset 0 0 0 7px rgba(255,255,255,.38),0 18px 36px rgba(123,91,45,.18);animation:coin-float 4.6s ease-in-out infinite;}
+.reward-coin-stack span:before{content:'HG';position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-weight:900;font-size:20px;letter-spacing:-.04em;text-shadow:0 2px 8px rgba(123,91,45,.20);}
+.reward-coin-stack span:nth-child(1){right:4px;bottom:8px;}
+.reward-coin-stack span:nth-child(2){right:52px;bottom:32px;transform:scale(.82);animation-delay:.5s;}
+.reward-coin-stack span:nth-child(3){right:22px;bottom:70px;transform:scale(.64);animation-delay:1s;}
+@keyframes coin-float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(7deg)}}
+.kol-avatar{overflow:hidden;background:linear-gradient(135deg,#fff7df,#e8f8ee);}
+.kol-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.kol-guide-card{grid-template-columns:112px 1fr;align-items:center;}
+.kol-avatar{width:112px;height:112px;border-radius:30px;font-size:0;}
+.event-map-link{color:var(--green-dark);font-weight:900;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;}
+.events-section .partner-strip{display:none!important;}
+@media (max-width:767px){.reward-coin-stack{justify-self:start;margin-top:14px;width:120px;height:96px}.reward-coin-stack span{width:58px;height:58px}.reward-coin-stack span:before{font-size:17px}.kol-guide-card{grid-template-columns:82px 1fr}.kol-avatar{width:82px;height:82px;border-radius:24px}.reward-card.reward-hg_points:after{right:34px;bottom:32px;width:78px;height:78px}}
