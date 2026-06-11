@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "GO HEALTH",
-    "version": "2026-06-10-v7",
+    "version": "2026-06-10-v8",
     "updatedAt": "2026-06-10",
     "language": "zh-TW",
     "source": "GO HEALTH_SITE Google Sheet"
@@ -170,11 +170,13 @@
       "title": "亞東醫院腦健康分享講座 × 記憶郵局",
       "date": "2026/7/13、2026/7/14",
       "time": "10:30–12:00",
-      "location": "亞東醫院一樓大廳｜新北市板橋區華東里南雅南路二段21號",
+      "location": "亞東醫院一樓大廳",
       "description": "由亞東醫院醫師分享腦健康保養知識，現場同步設置「記憶郵局」互動體驗。歡迎到現場寫下自己或家中長輩最快樂、最輝煌的記憶，把這份回憶寄給家人。醫師衛教主題待確認。",
-      "cta_text": "查看地圖",
-      "cta_url": "https://www.google.com/maps/search/?api=1&query=亞東醫院%20新北市板橋區華東里南雅南路二段21號",
-      "enabled": true
+      "cta_text": "",
+      "cta_url": "",
+      "enabled": true,
+      "address": "新北市板橋區華東里南雅南路二段21號",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=亞東醫院%20新北市板橋區華東里南雅南路二段21號"
     },
     {
       "event_id": "femh_talk_0714",
@@ -194,11 +196,13 @@
       "title": "2026 高齡健康產業博覽會 × GO HEALTH 互動體驗",
       "date": "2026/8/7–2026/8/9",
       "time": "8/7（五）10:00–18:00｜8/8（六）10:00–18:00｜8/9（日）10:00–17:00",
-      "location": "台北世貿中心一館全區｜台北市信義區信義路五段5號",
+      "location": "台北世貿中心一館全區",
       "description": "亞東醫院與 GO HEALTH 將於 2026 高齡健康產業博覽會現場共同展示腦健康互動體驗，並延續「世代記憶交換計畫」精神，規劃記憶郵筒互動。攤位位置待補充。",
-      "cta_text": "查看展會資訊",
+      "cta_text": "查看展會網站",
       "cta_url": "https://www.taiwan-healthcare.org/hats/zh/index.php",
-      "enabled": true
+      "enabled": true,
+      "address": "台北市信義區信義路五段5號",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=台北世貿中心一館%20台北市信義區信義路五段5號"
     }
   ],
   "notices": [
@@ -295,8 +299,8 @@
     },
     {
       "reward_id": "hg_points",
-      "title": "GO HEALTH 會員限定禮",
-      "subtitle": "加入服務抽 10,000 點",
+      "title": "加入 GO HEALTH，抽 10,000 點",
+      "subtitle": "GO HEALTH 會員限定禮",
       "body": "活動期間加入 GO HEALTH，就有機會抽 10,000 點 HAPPY GO 點數。實際資格以官方公告為準。",
       "image": "",
       "enabled": true,
@@ -340,24 +344,26 @@
   ],
   "kol_profiles": [
     {
-      "kol_id": "tiffany",
+      "kol_id": "chen_yan_ting",
       "name": "陳彥婷",
       "title": "夾心世代媽媽／熱血生活分享者",
       "description": "用活力與幽默感，示範如何從一句「聽說你當年超厲害？」開始，打開和家人的快樂回憶。",
       "link_text": "查看分享貼文",
       "link_url": "TBD",
       "enabled": true,
-      "display_order": 1
+      "display_order": 1,
+      "image": "assets/images/kol-chen-yanting.webp"
     },
     {
-      "kol_id": "liuxuan",
+      "kol_id": "liu_xuan",
       "name": "劉軒",
       "title": "心理學作家／主持人",
       "description": "從心理學與生活觀察出發，陪我們重新理解：好好聽長輩說故事，也是一種溫柔的陪伴。",
       "link_text": "查看分享貼文",
       "link_url": "TBD",
       "enabled": true,
-      "display_order": 2
+      "display_order": 2,
+      "image": "assets/images/kol-liu-xuan.webp"
     }
   ]
 }
