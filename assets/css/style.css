@@ -1753,3 +1753,95 @@ img{max-width:100%;display:block}
   0%,100%{transform:translateX(-50%) translateY(0);}
   50%{transform:translateX(-50%) translateY(-6px);}
 }
+
+
+/* v8.11 Final memory-bubble refinement
+   - Replaced asset with processed soft-alpha memory-bubble.webp
+   - Keeps confirmed desktop/mobile proportions
+   - Adds subtle visual blending and center-based breathing motion
+*/
+.campaign-dynamic-visual .campaign-memory-layer{
+  display:none !important;
+}
+
+.campaign-dynamic-visual .campaign-memory-group{
+  position:absolute;
+  width:82% !important;
+  max-width:none !important;
+  left:50% !important;
+  top:2.5% !important;
+  z-index:8 !important;
+  opacity:.92 !important;
+  pointer-events:none !important;
+  transform-origin:center center !important;
+  mix-blend-mode:normal;
+  filter:
+    blur(.12px)
+    drop-shadow(0 0 18px rgba(255,244,204,.34))
+    drop-shadow(0 14px 24px rgba(115,92,45,.07))
+    brightness(1.025)
+    saturate(.97) !important;
+  animation:memoryBubbleGroupBreathV811Desktop 8.2s ease-in-out infinite !important;
+}
+
+@media (max-width:767px){
+  .campaign-dynamic-visual .campaign-memory-group{
+    width:152% !important;
+    max-width:none !important;
+    left:50% !important;
+    top:2% !important;
+    z-index:8 !important;
+    opacity:.92 !important;
+    transform-origin:center center !important;
+    filter:
+      blur(.12px)
+      drop-shadow(0 0 14px rgba(255,244,204,.32))
+      drop-shadow(0 10px 18px rgba(115,92,45,.07))
+      brightness(1.025)
+      saturate(.97) !important;
+    animation:memoryBubbleGroupBreathV811Mobile 8.8s ease-in-out infinite !important;
+  }
+}
+
+@keyframes memoryBubbleGroupBreathV811Desktop{
+  0%{
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+  38%{
+    transform:translateX(-50%) translateY(-6px) scale(1.03);
+  }
+  72%{
+    transform:translateX(-50%) translateY(4px) scale(.97);
+  }
+  100%{
+    transform:translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes memoryBubbleGroupBreathV811Mobile{
+  0%{
+    transform:translateX(-50%) translateY(0) scale(1.04);
+  }
+  38%{
+    transform:translateX(-50%) translateY(-5px) scale(1.07);
+  }
+  72%{
+    transform:translateX(-50%) translateY(3px) scale(1.01);
+  }
+  100%{
+    transform:translateX(-50%) translateY(0) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .campaign-dynamic-visual .campaign-memory-group{
+    animation:none !important;
+    transform:translateX(-50%) scale(1) !important;
+  }
+
+  @media (max-width:767px){
+    .campaign-dynamic-visual .campaign-memory-group{
+      transform:translateX(-50%) scale(1.04) !important;
+    }
+  }
+}
